@@ -1,17 +1,5 @@
-let form = document.querySelector('.auth_form');
-let validateBtn = document.querySelector('.validate_button');
-
-
-let errorsblock = document.querySelector('.errors_block');
-
-
-let fields = form.querySelectorAll('input');
-
-let name = form.querySelector('input[name=first_name]');
-let email = form.querySelector('input[name=email]');
-let password = form.querySelector('input[name=password]');
-let confpassword = form.querySelector('input[name=password_2]');
-
+let form = document.querySelector('[name=reg_form]');
+let errorsBlock = document.querySelector('.errors_block');
 
 let clearErrors = function ()
 {
@@ -21,11 +9,14 @@ let clearErrors = function ()
         errors[i].remove();
 }
 
-
-let addUser = function() {
+let checkInputs = function () {
     let errors = [];
+    let firstname = form.querySelector('[name=first_name]');
+    let email = form.querySelector('[name=email]');
+    let password = form.querySelector('[name=password]');
+    let confirmPassword = form.querySelector('[name=password_2]');
 
-    if (name.value.length == 0) {
+    if (firstname.value.length == 0) {
         errors.push('Не указано имя');
     }
 
@@ -37,59 +28,33 @@ let addUser = function() {
         errors.push('Не указан пароль');
     } else if (password.value.length < 8) {
         errors.push('Пароль не должен быть короче 8 символов');
-    } else if (password.value != confpassword.value) {
+    } else if (password.value != confirmPassword.value) {
         errors.push('Повторный ввод пароля неверный');
     }
 
-    errorsblock.innerHTML = '';
+    errorsBlock.innerHTML = '';
 
     for (let i = 0; i < errors.length; i++)
     {
-        errorsblock.innerHTML += '<p style="color:red">' + errors[i] + '</p>';
+        errorsBlock.innerHTML += '<p style="color:red">' + errors[i] + '</p>';
     }
 
-    if (errorsblock.innerHTML == '')
-    {
-        // $(document).ready(function(){
-        //     $('.auth_form').submit(function (e) {
-        //         e.preventDefault();
-        if (errors.length <= 0)
-        {
-            //validateBtn.setAttribute('disabled', '');
-            $.ajax({
-                // async: false,
-                type: 'POST',
-                url: '../includes/reg.php',
-                data: {first_name: name.value, email: email.value, password: password.value},
-                success: function (response)
-                {
-                    // var jsonData = JSON.parse(response);
-                    //
-                    // // user is logged in successfully in the back-end
-                    // // let's redirect
-                    // if (jsonData.success == "1")
-                    // {
-                    //     location.href = '../index.php';
-                    // }
-                    // else
-                    // {
-                    //     alert('Invalid Credentials!');
-                    // }
-                }
-                //     });
-                // });
-            });
-        }
-
-    }
 }
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
-
     clearErrors();
 
-    addUser();
+    checkInputs();
+
+    if (errorsBlock.innerHTML == ''){
+        let formData = new FormData(form);
+        let request = new XMLHttpRequest();
+
+        request.open('POST', '../pages/register.php');
+
+        request.send(formData);
+    }
+});
 
 
-})
