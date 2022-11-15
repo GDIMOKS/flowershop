@@ -10,13 +10,12 @@ a {
 
 html {
     width: 100vw;
-    background-color: #ebebeb;
+    background-color: white/*#ebebeb*/;
 }
 
 
 body {
     display: grid;
-
 }
 
 li{
@@ -24,6 +23,15 @@ li{
 }
 ul {
     padding-left: 0;
+}
+
+.grid_area{
+    margin: auto;
+    height: 100vw;
+    display: flex;
+    width: 1200px;
+    max-width: 1200px;
+    background-color: #fafafa;
 }
 /*
 button {
