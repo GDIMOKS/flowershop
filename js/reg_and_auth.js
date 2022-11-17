@@ -5,59 +5,50 @@ export let clearErrors = function (form) {
         errors[i].remove();
 }
 
-export let checkName = function (firstname) {
-    let errors = [];
+export let checkName = function (firstname, errors) {
+    let nameErrors = [];
 
-    if (firstname.length == 0) {
-        errors.push('Не указано имя');
+    if (firstname.value.length == 0) {
+        nameErrors.push('Не указано имя');
     } else {
         let regExp = /^[А-Яа-яЁё' .(),-]+$/g;
-        if (!regExp.exec(firstname)) {
+        if (!regExp.exec(firstname.value)) {
 
-            errors.push('Имя может содержать только кириллицу, пробел и следующие символы: \' , \( \) \. -');
+            nameErrors.push('Имя может содержать только кириллицу, пробел и следующие символы: \' , \( \) \. -');
         }
     }
+
+    errors = changeColor(firstname, nameErrors, errors);
+
     return errors;
 }
 
-export let checkEmail = function (email) {
-    let errors = [];
-
-    if (email.length == 0) {
-        errors.push('Не указана электронная почта');
-    }
-    return errors;
-}
-
-export let checkPassword = function (password, confirmPassword) {
-    let errors = [];
-
-    if (password.length == 0) {
-        errors.push('Не указан пароль');
-    } else if (password.length < 8) {
-        errors.push('Пароль не должен быть короче 8 символов');
-    } else if (password != confirmPassword) {
-        errors.push('Повторный ввод пароля неверный');
+export let changeColor = function (element, elementErrors, errors) {
+    if (elementErrors.length == 0) {
+        element.style.borderColor = '#e3e3e3';
+        element.style.backgroundColor = '#fcfcfc';
     } else {
-        if (!/(?=.*[0-9])/g.exec(password)) {
-            errors.push('Пароль должен содержать минимум одну цифру');
-        }
-        if (!/(?=.*[!@#$%^&*])/g.exec(password)) {
-            errors.push('Пароль должен содержать один из следующих спецсимволов: !@#$%^&*');
-        }
-        if (!/(?=.*[a-z])(?=.*[A-Z])/g.exec(password)) {
-            errors.push('Пароль должен содержать только латинские буквы');
-        }
-        if (!/(?=.*[a-z])/g.exec(password)) {
-            errors.push('Пароль должен содержать как минимум одну строчную букву');
-        }
-        if (!/(?=.*[A-Z])/g.exec(password)) {
-            errors.push('Пароль должен содержать как минимум одну прописную букву');
-        }
-
+        errors.push(elementErrors);
+        element.style.borderColor = 'red';
+        element.style.backgroundColor = '#FF000009  ';
     }
+
     return errors;
 }
+
+export let checkEmail = function (email, errors) {
+    let emailErrors = [];
+
+    if (email.value.length == 0) {
+        emailErrors.push('Не указана электронная почта');
+    }
+
+    errors = changeColor(email, emailErrors, errors);
+
+    return errors;
+}
+
+
 
 export let generateErrors = function (errorsBlock, errors) {
     errorsBlock.innerHTML = '';

@@ -1,6 +1,17 @@
 <?php
+session_start();
 require "../includes/config.php";
+
+if ($_SESSION['user'])
+{
+    header('Location: profile.php');
+}
 ?>
+<pre>
+    <?php
+    print_r($_SESSION[user]);
+    ?>
+</pre>
 
 <!DOCTYPE html>
 <html>
@@ -17,44 +28,34 @@ require "../includes/config.php";
     <?php
         include "../includes/header.php";
     ?>
-    <div class="grid_area">
 
+        <div class="grid_area">
+            <form name="reg_form">
+                <div class="errors_block">
 
-        <form name="reg_form">
-            <div class="errors_block">
+                </div>
+                <label>Имя</label>
+                <input type="text" name="first_name" placeholder="Введите своё имя" autofocus>
 
-            </div>
+                <label>Электронная почта</label>
+                <input type="email" name="email" placeholder="Введите адрес своей электронной почты">
 
-            <p>
-            <p><strong>Имя</strong></p>
-            <input type="text" name="first_name" autofocus>
-            </p>
+                <label>Пароль</label>
+                <input type="password" name="password" placeholder="Введите пароль">
 
-            <p>
-            <p><strong>Электронная почта</strong></p>
-            <input type="email" name="email">
-            </p>
+                <label>Подтверждение пароля</label>
+                <input type="password" name="password_2" placeholder="Повторно введите пароль">
+                </p>
 
-            <p>
-            <p><strong>Пароль</strong></p>
-            <input type="password" name="password">
-            </p>
+                <button type="submit">Зарегистрироваться</button>
+                <p class="p_reg">
+                    У вас уже есть аккаунт? - <a href="auth.php" class="a_reg">авторизуйтесь</a>!
+                </p>
+            </form>
 
-            <p>
-            <p><strong>Подтверждение пароля</strong></p>
-            <input type="password" name="password_2">
-            </p>
+        </div>
 
-
-            <button type="submit">Зарегистрироваться</button>
-
-        </form>
-
-    </div>
-
-    <div id ="result">...</div>
-
-    <script type="text/javascript" src="../js/reg.js"></script>
+    <script type="module" src="../js/reg.js"></script>
 
     </body>
 </html>

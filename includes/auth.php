@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require "../includes/config.php";
 
     $email =  htmlspecialchars(trim($_POST['email']));
@@ -12,9 +13,21 @@
     $output = [];
 
     if (password_verify($password, $dbPassword)) {
-        $output = ['status' => 'OK', 'message' => 'Здравствуйте, '.$userResult['first_name'].'!'];
+        $_SESSION['user'] =[
+            "id" => $userResult['id'],
+            "first_name" => $userResult['first_name'],
+            "last_name" => $userResult['last_name'],
+            "patronymic_name" => $userResult['patronymic_name'],
+            "role_id" => $userResult['role_id'],
+            "email" => $userResult['email'],
+            "phone" => $userResult['phone'],
+            "birthday" => $userResult['birthday']
+        ];
+        $_SESSION['message'] = 'Здравствуйте, ' . $_SESSION['first_name'] . '!';
+        $output = ['status' => 'OK', 'message' => $_SESSION['message']];
     } else {
-        $output = ['status' => 'ERROR', 'message' => 'Неправильные логин или пароль!'];
+        $_SESSION['message'] = 'Неправильные логин или пароль!';
+        $output = ['status' => 'ERROR', 'message' => $_SESSION['message']];
     }
 
     exit(json_encode($output));

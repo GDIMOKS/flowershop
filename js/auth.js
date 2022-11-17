@@ -1,17 +1,28 @@
-import {checkPassword, checkEmail, clearErrors, generateErrors} from "./reg_and_auth.js";
-
+import {checkEmail, clearErrors, generateErrors, changeColor} from "./reg_and_auth.js";
 
 let authForm = document.querySelector('[name=auth_form]');
 let authErrorsBlock = authForm.querySelector('.errors_block');
 
+let checkPassword = function (password, errors) {
+    let passwordErrors = [];
+
+    if (password.value.length == 0) {
+        passwordErrors.push('Не указан пароль');
+    }
+
+    errors = changeColor(password, passwordErrors, errors);
+
+    return errors;
+}
+
 let checkAuthInputs = function () {
     let errors = [];
 
-    let email = authForm.querySelector('[name=email]').value;
-    let password = authForm.querySelector('[name=password]').value;
+    let email = authForm.querySelector('[name=email]');
+    let password = authForm.querySelector('[name=password]');
 
-    errors.push(checkEmail(email));
-    errors.push(checkPassword(password, password));
+    errors = (checkEmail(email, errors));
+    errors = (checkPassword(password, errors));
 
     generateErrors(authErrorsBlock, errors);
 
@@ -26,6 +37,7 @@ authForm.addEventListener('submit', (event) => {
     if (authErrorsBlock.innerHTML == ''){
         let formData = new FormData(authForm);
         let request = new XMLHttpRequest();
+        let sessionId;
 
         request.open('POST', '../includes/auth.php');
         request.responseType = 'json';
@@ -43,6 +55,7 @@ authForm.addEventListener('submit', (event) => {
             {
                 alert(response.message);
                 authErrorsBlock.innerHTML += '<p style="color:green">'+ response.message + '</p>';
+                sessionId = response.sessionId;
             }
 
         }

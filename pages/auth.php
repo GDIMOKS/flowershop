@@ -1,16 +1,22 @@
 <?php
     require "../includes/config.php";
+    session_start();
+if ($_SESSION['user'])
+{
+    header('Location: profile.php');
+}
 ?>
+
 
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Авторизация</title>
 
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/header.css">
-<!--        <link rel="stylesheet" href="../css/auth.css">-->
-        <meta charset="UTF-8">
+
 
     </head>
     <body>
@@ -25,29 +31,32 @@
 
                     </div>
 
-                    <p>
-                    <p><strong>Электронная почта</strong></p>
-                    <input type="email" name="email">
-                    </p>
+                    <label>Электронная почта</label>
+                    <input type="email" name="email" placeholder="Введите свой email" autofocus>
 
-                    <p>
-                    <p><strong>Пароль</strong></p>
-                    <input type="password" name="password">
-                    </p>
+                    <label>Пароль</label>
+                    <input type="password" name="password" placeholder="Введите пароль">
 
 
                     <button type="submit">Авторизоваться</button>
 
+                    <p class="p_reg">
+                        У вас нет аккаунта? - <a href="signup.php" class="a_reg">зарегистрируйтесь</a>!
+                    </p>
+
 
                 </form>
-                <a href="signup.php">
-                    <button>Зарегистрироваться</button>
-                </a>
+
             </div>
+            <?php
+                if ($_SESSION['message']) {
+                    echo '<p>'. $_SESSION['message'] . '</p>';
+                }
+                unset($_SESSION['message']);
+            ?>
 
         </div>
 
-<!--        <script type="text/javascript" src="../js/reg_and_auth.js"></script>-->
         <script type="module" src="../js/auth.js"></script>
     </body>
 </html>

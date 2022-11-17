@@ -6,10 +6,7 @@
         $config['db']['name']
     );
 
-    if (!$connection)
-    {
-        echo 'Не удалось подключиться к базе данных! <br>';
-        echo mysqli_connect_error();
-        exit();
+    if (!$connection) {
+        die('Не удалось подключиться к базе данных!');
     }
 ?>
