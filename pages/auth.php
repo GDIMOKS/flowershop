@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/auth.css">
+<!--        <link rel="stylesheet" href="../css/auth.css">-->
         <meta charset="UTF-8">
 
     </head>
@@ -19,21 +19,25 @@
         ?>
 
         <div class="grid_area">
-            <div class="auth_form">
-                <form action="/login.php" method="POST">
+            <div>
+                <form name="auth_form">
+                    <div class="errors_block">
+
+                    </div>
+
                     <p>
-                    <p><strong>Ваш email</strong></p>
-                    <input type="text" name="email">
+                    <p><strong>Электронная почта</strong></p>
+                    <input type="email" name="email">
                     </p>
 
                     <p>
-                    <p><strong>Ваш пароль</strong></p>
-                    <input type="text" name="password">
+                    <p><strong>Пароль</strong></p>
+                    <input type="password" name="password">
                     </p>
 
-                    <p>
-                        <button type="submit">Авторизироваться</button>
-                    </p>
+
+                    <button type="submit">Авторизоваться</button>
+
 
                 </form>
                 <a href="signup.php">
@@ -43,6 +47,7 @@
 
         </div>
 
-
+<!--        <script type="text/javascript" src="../js/reg_and_auth.js"></script>-->
+        <script type="module" src="../js/auth.js"></script>
     </body>
 </html>

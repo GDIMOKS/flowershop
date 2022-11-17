@@ -1,60 +1,52 @@
-let form = document.querySelector('[name=reg_form]');
-let errorsBlock = document.querySelector('.errors_block');
+import {checkPassword, checkEmail, clearErrors, generateErrors} from "./reg_and_auth.js";
 
-let clearErrors = function ()
-{
-    errors = form.querySelectorAll('.error');
 
-    for (let i = 0; i < errors.length; i++)
-        errors[i].remove();
-}
+let authForm = document.querySelector('[name=auth_form]');
+let authErrorsBlock = authForm.querySelector('.errors_block');
 
-let checkInputs = function () {
+let checkAuthInputs = function () {
     let errors = [];
-    let firstname = form.querySelector('[name=first_name]');
-    let email = form.querySelector('[name=email]');
-    let password = form.querySelector('[name=password]');
-    let confirmPassword = form.querySelector('[name=password_2]');
 
-    if (firstname.value.length == 0) {
-        errors.push('Не указано имя');
-    }
+    let email = authForm.querySelector('[name=email]').value;
+    let password = authForm.querySelector('[name=password]').value;
 
-    if (email.value.length == 0) {
-        errors.push('Не указана электронная почта');
-    }
+    errors.push(checkEmail(email));
+    errors.push(checkPassword(password, password));
 
-    if (password.value.length == 0) {
-        errors.push('Не указан пароль');
-    } else if (password.value.length < 8) {
-        errors.push('Пароль не должен быть короче 8 символов');
-    } else if (password.value != confirmPassword.value) {
-        errors.push('Повторный ввод пароля неверный');
-    }
-
-    errorsBlock.innerHTML = '';
-
-    for (let i = 0; i < errors.length; i++)
-    {
-        errorsBlock.innerHTML += '<p style="color:red">' + errors[i] + '</p>';
-    }
+    generateErrors(authErrorsBlock, errors);
 
 }
 
-form.addEventListener('submit', (event) => {
+authForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    clearErrors();
+    clearErrors(authForm);
 
-    checkInputs();
+    checkAuthInputs();
 
-    if (errorsBlock.innerHTML == ''){
-        let formData = new FormData(form);
+    if (authErrorsBlock.innerHTML == ''){
+        let formData = new FormData(authForm);
         let request = new XMLHttpRequest();
 
-        request.open('POST', '../pages/register.php');
+        request.open('POST', '../includes/auth.php');
+        request.responseType = 'json';
+        request.onload = () => {
+            if (request.status !== 200) {
+                return;
+            }
+
+            let response = request.response;
+
+            if (response.status == 'ERROR') {
+                authErrorsBlock.innerHTML += '<p style="color:red">' + response.message + '</p>';
+            }
+            else
+            {
+                alert(response.message);
+                authErrorsBlock.innerHTML += '<p style="color:green">'+ response.message + '</p>';
+            }
+
+        }
 
         request.send(formData);
     }
 });
-
-

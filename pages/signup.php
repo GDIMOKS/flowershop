@@ -27,12 +27,12 @@ require "../includes/config.php";
 
             <p>
             <p><strong>Имя</strong></p>
-            <input type="text" name="first_name">
+            <input type="text" name="first_name" autofocus>
             </p>
 
             <p>
             <p><strong>Электронная почта</strong></p>
-            <input type="text" name="email">
+            <input type="email" name="email">
             </p>
 
             <p>
@@ -54,7 +54,7 @@ require "../includes/config.php";
 
     <div id ="result">...</div>
 
-    <script type="text/javascript" src="../js/auth.js"></script>
+    <script type="text/javascript" src="../js/reg.js"></script>
 
     </body>
 </html>
