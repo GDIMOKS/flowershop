@@ -49,7 +49,7 @@ if ($_SESSION['user'])
 
                 <button type="submit">Зарегистрироваться</button>
                 <p class="p_reg">
-                    У вас уже есть аккаунт? - <a href="auth.php" class="a_reg">авторизуйтесь</a>!
+                    У вас уже есть аккаунт? - <a href="signin.php" class="a_reg">авторизуйтесь</a>!
                 </p>
             </form>
 

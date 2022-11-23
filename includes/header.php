@@ -23,7 +23,7 @@
                     </li >
 
                     <li class="header_middle_li">
-                        <a class="cabinet_button" href="../pages/auth.php">
+                        <a class="cabinet_button" href="../pages/signin.php">
                             <p class="cabinet_button_text">
                                 Войти
                             </p>
