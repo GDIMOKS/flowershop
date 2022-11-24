@@ -1,5 +1,5 @@
 <?php
-    require_once "includes/config.php";
+    require_once "assets/includes/config.php";
 ?>
 
 <!DOCTYPE html>
@@ -7,19 +7,19 @@
 <head>
     <title><?php echo $config['title']; ?></title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
     <meta charset="UTF-8">
 
 </head>
     <body>
         <?php
-        include "includes/header.php";
+        include "assets/includes/header.php";
         ?>
 
 
         <?php
-        include "includes/footer.php";
+        include "assets/includes/footer.php";
         ?>
     </body>
 </html>

@@ -3,7 +3,7 @@
     session_start();
 if ($_SESSION['user'])
 {
-    header('Location: profile.php');
+//    header('Location: profile.php');
 }
 ?>
 
@@ -27,9 +27,7 @@ if ($_SESSION['user'])
         <div class="grid_area">
             <div>
                 <form name="auth_form">
-                    <div class="errors_block">
 
-                    </div>
 
                     <label>Электронная почта</label>
                     <input type="email" name="email" placeholder="Введите свой email" autofocus>
@@ -44,16 +42,20 @@ if ($_SESSION['user'])
                         У вас нет аккаунта? - <a href="signup.php" class="a_reg">зарегистрируйтесь</a>!
                     </p>
 
+                    <div class="errors_block">
+                        <?php
+//                        if ($_SESSION['message'])
+//                        {
+//                            echo '<p class="errors_block_good">'.$_SESSION['message']. '</p>';
+//                        }
+                        unset($_SESSION['message']);
+                        ?>
+                    </div>
 
                 </form>
 
             </div>
-            <?php
-                if ($_SESSION['message']) {
-                    echo '<p>'. $_SESSION['message'] . '</p>';
-                }
-                unset($_SESSION['message']);
-            ?>
+
 
         </div>
 

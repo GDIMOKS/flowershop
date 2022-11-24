@@ -28,9 +28,10 @@ export let changeColor = function (element, elementErrors, errors) {
         element.style.borderColor = '#e3e3e3';
         element.style.backgroundColor = '#fcfcfc';
     } else {
-        errors.push(elementErrors);
+        for (let i = 0; i < elementErrors.length; i++)
+            errors.push(elementErrors[i]);
         element.style.borderColor = 'red';
-        element.style.backgroundColor = '#FF000009  ';
+        element.style.backgroundColor = '#FF000009';
     }
 
     return errors;

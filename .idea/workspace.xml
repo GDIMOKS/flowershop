@@ -6,9 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="7ccaf4c0-74e3-4bef-962c-eb4ac2a8ac3f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/signin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/auth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery-3.6.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jquery-3.6.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/reg.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/reg_and_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reg_and_auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cabinet_ico.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/media/cabinet_ico.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/signin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/signup.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,14 +75,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\flowershop\assets" />
       <recent name="C:\OpenServer\domains\flowershop\includes" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.reg.js">
-    <configuration name="reg.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/js/reg.js" working-dir="$PROJECT_DIR$/js">
+  <component name="RunManager" selected="Node.js.reg_and_auth.js">
+    <configuration name="reg_and_auth.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/assets/js/reg_and_auth.js" working-dir="$PROJECT_DIR$/assets/js">
       <method v="2" />
     </configuration>
-    <configuration name="db.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/includes/db.php">
+    <configuration name="reg.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/assets/js/reg.js" working-dir="$PROJECT_DIR$/assets/js">
+      <method v="2" />
+    </configuration>
+    <configuration name="db.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/assets/includes/db.php">
       <method v="2" />
     </configuration>
     <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
@@ -74,6 +94,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.reg_and_auth.js" />
         <item itemvalue="Node.js.reg.js" />
         <item itemvalue="PHP Script.index.php" />
         <item itemvalue="PHP Script.db.php" />
@@ -102,6 +123,7 @@
       <workItem from="1668672996619" duration="3706000" />
       <workItem from="1668677348882" duration="7538000" />
       <workItem from="1668685834456" duration="4554000" />
+      <workItem from="1669235412974" duration="7373000" />
     </task>
     <servers />
   </component>

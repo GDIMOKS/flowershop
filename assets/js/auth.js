@@ -49,13 +49,14 @@ authForm.addEventListener('submit', (event) => {
             let response = request.response;
 
             if (response.status == 'ERROR') {
-                authErrorsBlock.innerHTML += '<p style="color:red">' + response.message + '</p>';
+                authErrorsBlock.innerHTML += '<p class="errors_block_bad">' + response.message + '</p>';
             }
             else
             {
-                alert(response.message);
-                authErrorsBlock.innerHTML += '<p style="color:green">'+ response.message + '</p>';
-                sessionId = response.sessionId;
+
+                authErrorsBlock.innerHTML += '<p class="errors_block_good">'+ response.message + '</p>';
+                location.href = '/';
+                //перенаправление с обновлением кнопки входа
             }
 
         }

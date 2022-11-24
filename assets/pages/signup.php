@@ -4,14 +4,9 @@ require "../includes/config.php";
 
 if ($_SESSION['user'])
 {
-    header('Location: profile.php');
+    //header('Location: signin.php');
 }
 ?>
-<pre>
-    <?php
-    print_r($_SESSION[user]);
-    ?>
-</pre>
 
 <!DOCTYPE html>
 <html>
@@ -31,9 +26,7 @@ if ($_SESSION['user'])
 
         <div class="grid_area">
             <form name="reg_form">
-                <div class="errors_block">
 
-                </div>
                 <label>Имя</label>
                 <input type="text" name="first_name" placeholder="Введите своё имя" autofocus>
 
@@ -51,6 +44,16 @@ if ($_SESSION['user'])
                 <p class="p_reg">
                     У вас уже есть аккаунт? - <a href="signin.php" class="a_reg">авторизуйтесь</a>!
                 </p>
+
+                <div class="errors_block">
+                    <?php
+                        if ($_SESSION['message'])
+                        {
+                            echo '<p class="errors_block_good">'.$_SESSION['message']. '</p>';
+                        }
+                        unset($_SESSION['message']);
+                    ?>
+                </div>
             </form>
 
         </div>

@@ -23,7 +23,7 @@
             "phone" => $userResult['phone'],
             "birthday" => $userResult['birthday']
         ];
-        $_SESSION['message'] = 'Здравствуйте, ' . $_SESSION['first_name'] . '!';
+        $_SESSION['message'] = 'Здравствуйте, ' . $_SESSION['user']['first_name'] . '!';
         $output = ['status' => 'OK', 'message' => $_SESSION['message']];
     } else {
         $_SESSION['message'] = 'Неправильные логин или пароль!';

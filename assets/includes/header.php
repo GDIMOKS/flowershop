@@ -9,25 +9,25 @@
             <nav>
                 <ul class="header_middle_ul">
                     <li class="header_middle_li">
-                        <p class="logo">
-                            МАГАЗИН ЦВЕТОВ
-                        </p>
-
+                        <a href="/">
+                            <p class="logo">
+                                МАГАЗИН ЦВЕТОВ
+                            </p>
+                        </a>
                     </li>
 
                     <li class="header_middle_li">
                         <p class="header_middle_text">
                             Принимаем заказы круглосуточно!
                         </p>
-
                     </li >
 
                     <li class="header_middle_li">
-                        <a class="cabinet_button" href="../pages/signin.php">
+                        <a class="cabinet_button" href="/assets/pages/signin.php">
                             <p class="cabinet_button_text">
                                 Войти
                             </p>
-                            <img src="../media/cabinet_ico.svg" class="cabinet_button_image" >
+                            <img src="/assets/media/cabinet_ico.svg" class="cabinet_button_image" >
                         </a>
                     </li>
                 </ul>

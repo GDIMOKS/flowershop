@@ -27,7 +27,9 @@ let checkPassword = function (password, confirmPassword, errors) {
         if (!/(?=.*[A-Z])/g.exec(password.value)) {
             passwordErrors.push('Пароль должен содержать как минимум одну прописную букву');
         }
-
+        //console.log(passwordErrors);
+        //console.log(passwordErrors[1]);
+        //console.log(passwordErrors.length);
     }
 
     if (password.value != confirmPassword.value || password.value == '' && confirmPassword.value == '') {
@@ -36,6 +38,8 @@ let checkPassword = function (password, confirmPassword, errors) {
 
     errors = changeColor(password, passwordErrors, errors);
     errors = changeColor(confirmPassword, confirmPasswordErrors, errors);
+
+
     return errors;
 }
 
@@ -62,7 +66,7 @@ regForm.addEventListener('submit', (event) => {
     clearErrors(regForm);
 
     checkRegInputs();
-    console.log(regErrorsBlock.innerHTML)
+
     if (regErrorsBlock.innerHTML == ''){
         let formData = new FormData(regForm);
         let request = new XMLHttpRequest();
@@ -81,8 +85,10 @@ regForm.addEventListener('submit', (event) => {
             }
             else
             {
-                alert("Пользователь с email " + response.email + " успешно зарегистрирован!");
-                regErrorsBlock.innerHTML += '<p class="errors_block_good">Пользователь с email <b>' + response.email + '</b> успешно зарегистрирован! </p>';
+
+                //regErrorsBlock.innerHTML += '<p class="errors_block_good">Пользователь с email <b>' + response.email + '</b> успешно зарегистрирован! </p>';
+
+                location.reload();
             }
 
         }
