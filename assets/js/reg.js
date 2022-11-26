@@ -1,4 +1,4 @@
-import {checkEmail, checkName, clearErrors, generateErrors, changeColor} from "./reg_and_auth.js";
+import {checkEmail, checkName, clearErrors, generateErrors, changeColor, redirect} from "./reg_and_auth.js";
 
 let regForm = document.querySelector('[name=reg_form]');
 let regErrorsBlock = regForm.querySelector('.errors_block');
@@ -27,9 +27,6 @@ let checkPassword = function (password, confirmPassword, errors) {
         if (!/(?=.*[A-Z])/g.exec(password.value)) {
             passwordErrors.push('Пароль должен содержать как минимум одну прописную букву');
         }
-        //console.log(passwordErrors);
-        //console.log(passwordErrors[1]);
-        //console.log(passwordErrors.length);
     }
 
     if (password.value != confirmPassword.value || password.value == '' && confirmPassword.value == '') {
@@ -86,9 +83,10 @@ regForm.addEventListener('submit', (event) => {
             else
             {
 
-                //regErrorsBlock.innerHTML += '<p class="errors_block_good">Пользователь с email <b>' + response.email + '</b> успешно зарегистрирован! </p>';
+                regErrorsBlock.innerHTML += '<p class="errors_block_good">Регистрация прошла успешно!</p>';
 
-                location.reload();
+                //location.reload();
+                setTimeout(redirect, 2000, 'signin.php' );
             }
 
         }
@@ -96,3 +94,5 @@ regForm.addEventListener('submit', (event) => {
         request.send(formData);
     }
 });
+
+

@@ -67,6 +67,7 @@ a {
 
 html {
     width: 100vw;
+    height: 100vh;
     background-color: white/*#ebebeb*/;
 }
 
@@ -94,6 +95,16 @@ ul {
     max-width: 1200px;
     background-color: #fafafa;
 }
+
+.logout {
+    display: flex;
+    height: 75px;
+    background-color: #2965BF;
+    border-left: 0;
+    border-right: 0;
+    border-color: #4079cfab;
+}
+
 /*
 button {
     display: flex;

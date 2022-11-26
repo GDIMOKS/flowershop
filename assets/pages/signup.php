@@ -1,11 +1,12 @@
 <?php
-session_start();
-require "../includes/config.php";
+    session_start();
+    require "../includes/config.php";
 
-if ($_SESSION['user'])
-{
-    //header('Location: signin.php');
-}
+    if ($_SESSION['user'])
+    {
+        //header('Location: /index.php');
+        header('Location: /assets/pages/profile.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -46,13 +47,7 @@ if ($_SESSION['user'])
                 </p>
 
                 <div class="errors_block">
-                    <?php
-                        if ($_SESSION['message'])
-                        {
-                            echo '<p class="errors_block_good">'.$_SESSION['message']. '</p>';
-                        }
-                        unset($_SESSION['message']);
-                    ?>
+
                 </div>
             </form>
 

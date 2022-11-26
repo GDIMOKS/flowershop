@@ -23,9 +23,22 @@
                     </li >
 
                     <li class="header_middle_li">
-                        <a class="cabinet_button" href="/assets/pages/signin.php">
+                        <?php
+                            if ($_SESSION['user']) {
+                                $direct = '/assets/pages/profile.php';
+                            } else {
+                                $direct = '/assets/pages/signin.php';
+                            }
+                        ?>
+                        <a class="cabinet_button" href="<?php echo  $direct ?>">
                             <p class="cabinet_button_text">
-                                Войти
+                                <?php
+                                if ($_SESSION['user']) {
+                                    echo $_SESSION['user']['first_name'];
+                                } else {
+                                    echo 'Войти';
+                                }
+                                ?>
                             </p>
                             <img src="/assets/media/cabinet_ico.svg" class="cabinet_button_image" >
                         </a>

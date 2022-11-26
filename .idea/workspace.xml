@@ -5,26 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ccaf4c0-74e3-4bef-962c-eb4ac2a8ac3f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/includes/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/reg.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/reg_and_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reg_and_auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/signin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/signup.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery-3.6.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jquery-3.6.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/reg.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/reg_and_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reg_and_auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/cabinet_ico.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/media/cabinet_ico.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/signin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/signup.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +116,8 @@
       <workItem from="1668677348882" duration="7538000" />
       <workItem from="1668685834456" duration="4554000" />
       <workItem from="1669235412974" duration="7373000" />
+      <workItem from="1669277356848" duration="4393000" />
+      <workItem from="1669283127880" duration="1905000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-import {checkEmail, clearErrors, generateErrors, changeColor} from "./reg_and_auth.js";
+import {checkEmail, clearErrors, generateErrors, changeColor, redirect} from "./reg_and_auth.js";
 
 let authForm = document.querySelector('[name=auth_form]');
 let authErrorsBlock = authForm.querySelector('.errors_block');
@@ -55,7 +55,8 @@ authForm.addEventListener('submit', (event) => {
             {
 
                 authErrorsBlock.innerHTML += '<p class="errors_block_good">'+ response.message + '</p>';
-                location.href = '/';
+                setTimeout(redirect, 1000, '/')
+
                 //перенаправление с обновлением кнопки входа
             }
 

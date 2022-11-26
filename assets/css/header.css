@@ -73,8 +73,9 @@ nav {
     color: rgb(168, 0, 0);
     display: flex;
     height: 100%;
+    width: 150px;
     align-items: center;
-    /*font-size: large;*/
+    justify-content: right;
 }
 
 .cabinet_button:hover{
@@ -86,6 +87,7 @@ nav {
     display: flex;
     height: 70%;
     align-items: center;
+    margin-left: 5px;
 
 }
 
@@ -98,7 +100,7 @@ nav {
     float: right;
     display: flex;
     height: 100%;
-    width: 120px;
+    /*width: 150px;*/
     justify-content: space-around;
     align-items: center;
 }

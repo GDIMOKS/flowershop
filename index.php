@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once "assets/includes/config.php";
 ?>
 
@@ -16,7 +17,8 @@
         <?php
         include "assets/includes/header.php";
         ?>
-
+        <div class="grid_area">
+        </div>
 
         <?php
         include "assets/includes/footer.php";

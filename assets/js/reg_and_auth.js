@@ -5,6 +5,10 @@ export let clearErrors = function (form) {
         errors[i].remove();
 }
 
+export let redirect = function(reference) {
+    location.href = reference;
+}
+
 export let checkName = function (firstname, errors) {
     let nameErrors = [];
 
