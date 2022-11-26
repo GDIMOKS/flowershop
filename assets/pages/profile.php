@@ -1,13 +1,8 @@
 <?php
-session_start();
-require "../includes/config.php";
+    session_start();
+    require "../includes/config.php";
 ?>
 
-<!--<pre>-->
-<!--    --><?php
-//    print_r($_SESSION[user]);
-//    ?>
-<!--</pre>-->
 
 <!DOCTYPE html>
 <html>
@@ -23,9 +18,12 @@ require "../includes/config.php";
     ?>
 
     <div class="grid_area">
-        <a href="../includes/logout.php">
-            <button>Выход</button>
-        </a>
+        <pre>
+            <?php
+                print_r($_SESSION[user]);
+            ?>
+        </pre>
+
     </div>
 
 </body>

@@ -1,3 +1,4 @@
+
 <header>
         <div class="header_up">
             <nav>
@@ -7,8 +8,8 @@
 
         <div class="header_middle">
             <nav>
-                <ul class="header_middle_ul">
-                    <li class="header_middle_li">
+                <ul>
+                    <li>
                         <a href="/">
                             <p class="logo">
                                 МАГАЗИН ЦВЕТОВ
@@ -16,32 +17,42 @@
                         </a>
                     </li>
 
-                    <li class="header_middle_li">
+                    <li>
                         <p class="header_middle_text">
                             Принимаем заказы круглосуточно!
                         </p>
                     </li >
 
-                    <li class="header_middle_li">
+                    <li>
                         <?php
-                            if ($_SESSION['user']) {
-                                $direct = '/assets/pages/profile.php';
-                            } else {
-                                $direct = '/assets/pages/signin.php';
-                            }
+                            if ($_SESSION['user'])
+                            {
                         ?>
-                        <a class="cabinet_button" href="<?php echo  $direct ?>">
+                        <div class="dropdown">
+                            <a class="cabinet_button" onclick="showMenu()">
+                                <p class="cabinet_button_text">
+                                    <?php echo $_SESSION['user']['first_name']; ?>
+                                </p>
+                                <img src="/assets/media/cabinet_ico.svg" class="cabinet_button_image">
+                            </a>
+                            <div id="menu" class="dropdown-content">
+                                <a href="/assets/pages/profile.php">Личный кабинет</a>
+                                <a href="/assets/includes/logout.php">Выйти из аккаунта</a>
+                            </div>
+                        </div>
+
+                        <?php
+                            } else {
+                        ?>
+                        <a class="cabinet_button" href="/assets/pages/signin.php">
                             <p class="cabinet_button_text">
-                                <?php
-                                if ($_SESSION['user']) {
-                                    echo $_SESSION['user']['first_name'];
-                                } else {
-                                    echo 'Войти';
-                                }
-                                ?>
+                                Войти
                             </p>
                             <img src="/assets/media/cabinet_ico.svg" class="cabinet_button_image" >
                         </a>
+                        <?php
+                            }
+                        ?>
                     </li>
                 </ul>
             </nav>
@@ -74,3 +85,4 @@
 
 
 </header>
+<script type="text/javascript" src="/assets/js/dropdownMenu.js"></script>

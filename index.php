@@ -23,7 +23,9 @@
         <?php
         include "assets/includes/footer.php";
         ?>
+
     </body>
+
 </html>
 <?php
 
