@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="assets/css/header.css">
     <meta charset="UTF-8">
 
+    <script type="text/javascript" src="/assets/js/jquery-3.6.1.min.js"></script>
+
 </head>
     <body>
         <?php

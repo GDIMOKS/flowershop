@@ -2,6 +2,28 @@
     session_start();
     require "../includes/config.php";
 
+    if($_POST){
+        /*СОЗДАЕМ ФУНКЦИЮ КОТОРАЯ ДЕЛАЕТ ЗАПРОС НА GOOGLE СЕРВИС*/
+        function getCaptcha($SecretKey) {
+            $Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$config['SECRET_KEY']."&response={$SecretKey}");
+            $Return = json_decode($Response);
+            return $Return;
+        }
+
+        /*ПРОИЗВОДИМ ЗАПРОС НА GOOGLE СЕРВИС И ЗАПИСЫВАЕМ ОТВЕТ*/
+        $Return = getCaptcha($_POST['g-recaptcha-response']);
+        /*ВЫВОДИМ НА ЭКРАН ПОЛУЧЕННЫЙ ОТВЕТ*/
+        var_dump($Return);
+
+        /*ЕСЛИ ЗАПРОС УДАЧНО ОТПРАВЛЕН И ЗНАЧЕНИЕ score БОЛЬШЕ 0,5 ВЫПОЛНЯЕМ КОД*/
+        if($Return->success == true && $Return->score > 0.5){
+            echo "Succes!";
+        }
+        else {
+            echo "You are Robot";
+        }
+    }
+
     if ($_SESSION['user'])
     {
         //header('Location: /index.php');
@@ -19,6 +41,15 @@
 
         <meta charset="UTF-8">
         <script src="../js/jquery-3.6.1.min.js"></script>
+        <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcrEkYjAAAAAMLRUgmMrD0-0wVgDFFjDaH7nLPR"></script>
+        <script>
+            grecaptcha.enterprise.ready(function() {
+                grecaptcha.enterprise.execute('6LcrEkYjAAAAAMLRUgmMrD0-0wVgDFFjDaH7nLPR', {action: 'login'}).then(function(token) {
+                ...
+                });
+            });
+        </script>
+
     </head>
     <body>
     <?php
@@ -40,6 +71,8 @@
                 <label>Подтверждение пароля</label>
                 <input type="password" name="password_2" placeholder="Повторно введите пароль">
                 </p>
+
+                <div class="g-recaptcha" data-sitekey="<?php echo $config['SITE_KEY'] ?>"></div>
 
                 <button type="submit">Зарегистрироваться</button>
                 <p class="p_reg">

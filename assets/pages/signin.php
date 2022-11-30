@@ -1,6 +1,7 @@
 <?php
     require "../includes/config.php";
     session_start();
+
     if ($_SESSION['user'])
     {
         //header('Location: /index.php');
@@ -17,6 +18,7 @@
 
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/header.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
     </head>
@@ -29,13 +31,13 @@
             <div>
                 <form name="auth_form">
 
-
                     <label>Электронная почта</label>
                     <input type="email" name="email" placeholder="Введите свой email" autofocus>
 
                     <label>Пароль</label>
                     <input type="password" name="password" placeholder="Введите пароль">
 
+                    <div class="g-recaptcha" data-sitekey="<?php echo $config['SITE_KEY'] ?>" style="margin: auto";></div>
 
                     <button type="submit">Авторизоваться</button>
 
@@ -47,6 +49,8 @@
 
                     </div>
 
+                    <div class="text-danger" id="recaptchaError"></div>
+
                 </form>
 
             </div>
@@ -55,5 +59,6 @@
         </div>
 
         <script type="module" src="../js/auth.js"></script>
+
     </body>
 </html>

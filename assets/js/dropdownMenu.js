@@ -5,7 +5,9 @@ function showMenu() {
 }
 
 window.onclick = function (e) {
-    if (!e.target.closest('.cabinet_button')) {
+    if (!e.target.closest('.cabinet_button') && menu != null) {
+        console.log(1);
+        console.log(menu);
         if (menu.classList.contains('show')) {
             showMenu();
         }
