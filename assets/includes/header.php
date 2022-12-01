@@ -25,7 +25,7 @@
 
                     <li>
                         <?php
-                            if ($_SESSION['user'])
+                            if ($_SESSION['auth'] == true)
                             {
                         ?>
                         <div class="dropdown">

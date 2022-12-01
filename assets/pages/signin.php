@@ -2,7 +2,9 @@
     require "../includes/config.php";
     session_start();
 
-    if ($_SESSION['user'])
+    include "../includes/cookie.php";
+
+    if (!empty($_SESSION['auth']) || $_SESSION['auth'] == true)
     {
         //header('Location: /index.php');
         header('Location: /assets/pages/profile.php');
@@ -48,8 +50,6 @@
                     <div class="errors_block">
 
                     </div>
-
-                    <div class="text-danger" id="recaptchaError"></div>
 
                 </form>
 

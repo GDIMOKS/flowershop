@@ -1,6 +1,13 @@
 <?php
     session_start();
     require "../includes/config.php";
+    include "../includes/cookie.php";
+
+    if (empty($_SESSION['auth']) || $_SESSION['auth'] == false)
+    {
+        //header('Location: /index.php');
+        header('Location: /assets/pages/signin.php');
+    }
 ?>
 
 
@@ -20,7 +27,7 @@
     <div class="grid_area">
         <pre>
             <?php
-                print_r($_SESSION[user]);
+                print_r($_SESSION);
             ?>
         </pre>
 

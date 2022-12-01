@@ -1,4 +1,12 @@
-import {checkEmail, checkName, clearErrors, generateErrors, changeColor, redirect} from "./reg_and_auth.js";
+import {
+    checkEmail,
+    checkName,
+    generateErrors,
+    changeColor,
+    checkCaptcha,
+    formEvent,
+    clearErrors
+} from "./reg_and_auth.js";
 
 let regForm = document.querySelector('[name=reg_form]');
 let regErrorsBlock = regForm.querySelector('.errors_block');
@@ -47,52 +55,25 @@ let checkRegInputs = function () {
     let email = regForm.querySelector('[name=email]');
     let password = regForm.querySelector('[name=password]');
     let confirmPassword = regForm.querySelector('[name=password_2]');
+    let captcha = grecaptcha.getResponse();
 
-    errors = (checkName(firstname, errors));
-
-    errors = (checkEmail(email, errors));
-
-    errors = (checkPassword(password, confirmPassword, errors));
+    checkName(firstname, errors);
+    checkEmail(email, errors);
+    checkPassword(password, confirmPassword, errors);
+    checkCaptcha(captcha, errors);
 
     generateErrors(regErrorsBlock, errors);
 
 }
 
-regForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+
+
+regForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     clearErrors(regForm);
-
     checkRegInputs();
-
-    if (regErrorsBlock.innerHTML == ''){
-        let formData = new FormData(regForm);
-        let request = new XMLHttpRequest();
-
-        request.open('POST', '../includes/register.php');
-        request.responseType = 'json';
-        request.onload = () => {
-            if (request.status !== 200) {
-                return;
-            }
-
-            let response = request.response;
-
-            if (response.status == 'ERROR') {
-                regErrorsBlock.innerHTML += '<p class="errors_block_bad">Пользователь с email <b>' + response.email + '</b> уже существует! </p>';
-            }
-            else
-            {
-
-                regErrorsBlock.innerHTML += '<p class="errors_block_good">Регистрация прошла успешно!</p>';
-
-                //location.reload();
-                setTimeout(redirect, 2000, 'signin.php' );
-            }
-
-        }
-
-        request.send(formData);
-    }
+    formEvent(regForm, regErrorsBlock, '../includes/register.php', 'signin.php');
 });
 
 

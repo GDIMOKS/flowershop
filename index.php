@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once "assets/includes/config.php";
+    include_once "assets/includes/cookie.php";
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +31,6 @@
 
 </html>
 <?php
-
-    $result = mysqli_query($connection, "SELECT * FROM `role`");
-
-    $r1 = mysqli_fetch_assoc($result);
 
     mysqli_close($connection);
 

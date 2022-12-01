@@ -1,6 +1,7 @@
 <?php
     session_start();
-    require "../includes/config.php";
+    require_once "../includes/config.php";
+    require_once "functions.php";
 
     $email =  htmlspecialchars(trim($_POST['email']));
     $password = trim($_POST['password']);
@@ -13,6 +14,7 @@
     $output = [];
 
     if (password_verify($password, $dbPassword)) {
+        $_SESSION['auth'] = true;
         $_SESSION['user'] =[
             "id" => $userResult['id'],
             "first_name" => $userResult['first_name'],
@@ -21,10 +23,15 @@
             "role_id" => $userResult['role_id'],
             "email" => $userResult['email'],
             "phone" => $userResult['phone'],
-            "birthday" => $userResult['birthday']
+            "birthday" => $userResult['birthday'],
+            "cookie" => $userResult['cookie']
         ];
+
         $_SESSION['message'] = 'Здравствуйте, ' . $_SESSION['user']['first_name'] . '!';
         $output = ['status' => 'OK', 'message' => $_SESSION['message']];
+
+        updateCookie($connection);
+
     } else {
         $_SESSION['message'] = 'Неправильные логин или пароль!';
         $output = ['status' => 'ERROR', 'message' => $_SESSION['message']];

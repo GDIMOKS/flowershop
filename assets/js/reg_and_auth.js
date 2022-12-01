@@ -64,6 +64,52 @@ export let generateErrors = function (errorsBlock, errors) {
     }
 }
 
+export let checkCaptcha = function (captcha, errors) {
+    if (!captcha.length) {
+        errors.push('Вы не прошли проверку "Я не робот"');
+    } else{
+
+    }
+
+}
+
+export let formEvent = function (form, errorsBlock, urlRequest, urlRedirect) {
+    let captcha = grecaptcha.getResponse();
+
+    if (errorsBlock.innerHTML == ''){
+        let formData = new FormData(form);
+        let request = new XMLHttpRequest();
+
+        if (captcha.length) {
+            formData.append('g-recaptcha-response', captcha);
+        }
+
+        request.open('POST', urlRequest);
+        request.responseType = 'json';
+        request.onload = () => {
+            if (request.status !== 200) {
+                return;
+            }
+
+            let response = request.response;
+
+            if (response.status == 'ERROR') {
+                grecaptcha.reset();
+                errorsBlock.innerHTML += '<p class="errors_block_bad">' + response.message + '</p>';
+            }
+            else
+            {
+
+                errorsBlock.innerHTML += '<p class="errors_block_good">' + response.message + '</p>';
+
+                setTimeout(redirect, 2000, urlRedirect);
+            }
+
+        }
+
+        request.send(formData);
+    }
+}
 
 
 
