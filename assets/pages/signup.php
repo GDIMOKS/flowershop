@@ -47,7 +47,7 @@
 
                 <div class="g-recaptcha" data-sitekey="<?php echo $config['SITE_KEY'] ?>" style="margin: auto";></div>
 
-                <button type="submit">Зарегистрироваться</button>
+                <button class="button" type="submit">Зарегистрироваться</button>
                 <p class="p_reg">
                     У вас уже есть аккаунт? - <a href="signin.php" class="a_reg">авторизуйтесь</a>!
                 </p>
