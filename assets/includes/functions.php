@@ -18,3 +18,9 @@
         $query = "UPDATE `user` SET `cookie`='".$key."' WHERE `email`='".$_SESSION['user']['email']."'";
         mysqli_query($connection, $query);
     }
+
+    function addToCart($product) {
+        session_start();
+
+        $_SESSION['products'][] = $product;
+    }

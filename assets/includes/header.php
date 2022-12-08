@@ -2,7 +2,7 @@
 <header>
         <div class="header_up">
             <nav>
-
+                <a href="/assets/pages/cart.php">Корзина</a>
             </nav>
         </div>
 

@@ -93,10 +93,11 @@ ul {
     align-items: baseline;
     /*flex-direction: column;*/
     margin: auto;
-    height: 100vh;
+    min-height: 100vh;
+    height: max-content;
     width: 1200px;
     max-width: 1200px;
-    background-color: #fafafa;
+    /*background-color: #fcfcfc;*/
     flex-wrap: wrap;
 }
 

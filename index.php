@@ -23,6 +23,7 @@
         include "assets/includes/header.php";
         ?>
         <div class="grid_area">
+
             <div class="products">
 
 
@@ -41,10 +42,10 @@
                                     <a class="product_name" href="#"><?php echo $product['name'] ?></a>
 
                                     <div class="product_price">
-                                        <?php echo $product['sell_price'] ?> Р
+                                        <?php echo $product['sell_price'] ?> ₽
                                     </div>
 
-                                    <a class="product_button" href="#">Добавить в корзину</a>
+                                    <a class="product_button" onclick="<?php addToCart($product); ?>">Добавить в корзину</a>
                                 </div>
 
 
