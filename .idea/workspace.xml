@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ccaf4c0-74e3-4bef-962c-eb4ac2a8ac3f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/pages/cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/cart.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/includes/cart-objects.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/includes/product_card.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/cart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pages/categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/includes/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -62,6 +72,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\flowershop\assets\includes" />
       <recent name="C:\OpenServer\domains\flowershop\assets" />
       <recent name="C:\OpenServer\domains\flowershop\includes" />
     </key>
@@ -116,6 +127,7 @@
       <workItem from="1670489352919" duration="256000" />
       <workItem from="1670489664500" duration="121000" />
       <workItem from="1670493713573" duration="5889000" />
+      <workItem from="1670668942252" duration="30785000" />
     </task>
     <servers />
   </component>

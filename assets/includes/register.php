@@ -7,7 +7,7 @@
     $password = password_hash($password, PASSWORD_BCRYPT);
 
     $query = "SELECT COUNT(`id`) AS `total_count` 
-        FROM `user` 
+        FROM `users` 
         WHERE (`email` = '$email')";
 
     $userExist = mysqli_query($connection, $query);
@@ -17,7 +17,7 @@
     $output = [];
 
     if ($userCount['total_count'] == 0) {
-        $query = "INSERT INTO `user` (`first_name`, `role_id`, `email`, `password`) 
+        $query = "INSERT INTO `users` (`first_name`, `role_id`, `email`, `password`) 
             VALUES ('$firstname', '2', '$email', '$password')";
 
         $result = mysqli_query($connection, $query);

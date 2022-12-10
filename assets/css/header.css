@@ -153,3 +153,37 @@ nav {
 .show {
     display: block;
 }
+
+    /*     Cart    */
+.cart-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    margin-left: 20px;
+    background: #4fce3f;
+    cursor: pointer;
+    border: unset;
+    border-radius: 15px;
+    /*font-weight: bold;*/
+    font-size: large;
+    color: #ffffff;
+
+}
+
+.cart-button:hover{
+    background: #35a800;
+}
+
+#cart-num {
+    display: flex;
+    width: 26px;
+    height: 26px;
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: #ffdf00;
+    color: #FFFFFF;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

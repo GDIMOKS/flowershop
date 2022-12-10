@@ -6,7 +6,7 @@
     $email =  htmlspecialchars(trim($_POST['email']));
     $password = trim($_POST['password']);
 
-    $query = "SELECT * FROM `user` WHERE `email` = '$email'";
+    $query = "SELECT * FROM `users` WHERE `email` = '$email'";
     $user = mysqli_query($connection, $query);
     $userResult = mysqli_fetch_assoc($user);
 
@@ -16,15 +16,15 @@
     if (password_verify($password, $dbPassword)) {
         $_SESSION['auth'] = true;
         $_SESSION['user'] =[
-            "id" => $userResult['id'],
-            "first_name" => $userResult['first_name'],
-            "last_name" => $userResult['last_name'],
-            "patronymic_name" => $userResult['patronymic_name'],
-            "role_id" => $userResult['role_id'],
-            "email" => $userResult['email'],
-            "phone" => $userResult['phone'],
-            "birthday" => $userResult['birthday'],
-            "cookie" => $userResult['cookie']
+            'id' => $userResult['id'],
+            'first_name' => $userResult['first_name'],
+            'last_name' => $userResult['last_name'],
+            'patronymic_name' => $userResult['patronymic_name'],
+            'role_id' => $userResult['role_id'],
+            'email' => $userResult['email'],
+            'phone' => $userResult['phone'],
+            'birthday' => $userResult['birthday'],
+            'cookie' => $userResult['cookie']
         ];
 
         $_SESSION['message'] = 'Здравствуйте, ' . $_SESSION['user']['first_name'] . '!';

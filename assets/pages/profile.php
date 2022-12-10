@@ -2,6 +2,7 @@
     session_start();
     require "../includes/config.php";
     include "../includes/cookie.php";
+    require_once "../includes/functions.php";
 
     if (empty($_SESSION['auth']) || $_SESSION['auth'] == false)
     {
@@ -25,11 +26,9 @@
     ?>
 
     <div class="grid_area">
-        <pre>
-            <?php
-                print_r($_SESSION);
-            ?>
-        </pre>
+        <?php
+            debug($_SESSION);
+        ?>
 
     </div>
 
