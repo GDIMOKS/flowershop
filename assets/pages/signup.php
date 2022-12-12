@@ -30,7 +30,7 @@
     ?>
 
         <div class="grid_area">
-            <form name="reg_form">
+            <form class="auth_reg" name="reg_form">
 
                 <label>Имя</label>
                 <input type="text" name="first_name" placeholder="Введите своё имя" autofocus>
@@ -63,3 +63,6 @@
 
     </body>
 </html>
+<?php
+    mysqli_close($connection);
+?>

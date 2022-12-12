@@ -55,7 +55,9 @@
 .product_name {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: inherit;
+    height: 50px;
     color: #CF2F2FFF;
     font-weight: bold;
     font-size: 20px;

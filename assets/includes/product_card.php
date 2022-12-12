@@ -1,6 +1,6 @@
 <div class="product">
     <div style="width: 100%">
-        <a href="#"><img src="/assets/media/<?= $product['image'] ?>" alt="<?= $product['name'] ?>" class="product_image"></a>
+        <a href="#"><img src="<?=$config['uploads'].$product['image'] ?>" alt="<?= $product['name'] ?>" class="product_image"></a>
     </div>
 
     <div class="product_info">

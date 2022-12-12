@@ -6,7 +6,7 @@ import {
     checkCaptcha,
     formEvent,
     clearErrors
-} from "./reg_and_auth.js";
+} from "./functions.js";
 
 let regForm = document.querySelector('[name=reg_form]');
 let regErrorsBlock = regForm.querySelector('.errors_block');

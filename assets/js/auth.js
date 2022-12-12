@@ -1,4 +1,4 @@
-import {checkEmail, clearErrors, generateErrors, changeColor, redirect, checkCaptcha, formEvent} from "./reg_and_auth.js";
+import {checkEmail, clearErrors, generateErrors, changeColor, redirect, checkCaptcha, formEvent} from "./functions.js";
 
 let authForm = document.querySelector('[name=auth_form]');
 let authErrorsBlock = authForm.querySelector('.errors_block');

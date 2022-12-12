@@ -24,7 +24,7 @@
             'email' => $userResult['email'],
             'phone' => $userResult['phone'],
             'birthday' => $userResult['birthday'],
-            'cookie' => $userResult['cookie']
+            'cookie' => htmlspecialchars($userResult['cookie'])
         ];
 
         $_SESSION['message'] = 'Здравствуйте, ' . $_SESSION['user']['first_name'] . '!';
@@ -38,5 +38,7 @@
     }
 
     exit(json_encode($output));
+
+    mysqli_close($connection);
 
 ?>

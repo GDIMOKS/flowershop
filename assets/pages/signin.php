@@ -31,7 +31,7 @@
 
         <div class="grid_area">
             <div>
-                <form name="auth_form">
+                <form class="auth_reg" name="auth_form">
 
                     <label>Электронная почта</label>
                     <input type="email" name="email" placeholder="Введите свой email" autofocus>
@@ -62,3 +62,6 @@
 
     </body>
 </html>
+<?php
+    mysqli_close($connection);
+?>
