@@ -23,14 +23,13 @@
             'role_id' => $userResult['role_id'],
             'email' => $userResult['email'],
             'phone' => $userResult['phone'],
-            'birthday' => $userResult['birthday'],
-            'cookie' => htmlspecialchars($userResult['cookie'])
+            'birthday' => $userResult['birthday']
         ];
 
         $_SESSION['message'] = 'Здравствуйте, ' . $_SESSION['user']['first_name'] . '!';
         $output = ['status' => 'OK', 'message' => $_SESSION['message']];
 
-        updateCookie($connection);
+        updateCookie();
 
     } else {
         $_SESSION['message'] = 'Неправильные логин или пароль!';

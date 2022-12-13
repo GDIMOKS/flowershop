@@ -5,17 +5,20 @@
         for($i = 0; $i < $saltLength; $i++) {
             $salt .= chr(mt_rand(33, 126)); //символ из ASCII-table
         }
+
         return $salt;
     }
 
-    function updateCookie($connection) {
-        session_start();
+    function updateCookie() {
+        //session_start();
+        global $connection;
 
         $key = generateSalt();
-        setcookie('login', $_SESSION['user']['email'], time() + 86400);
-        setcookie('key', $key,  time() + 86400);
+        $hash_key = hash('sha256', $key);
+        setcookie('login', $_SESSION['user']['email'], time() + 86400, '/');
+        setcookie('key', $hash_key,  time() + 86400, '/');
 
-        $query = "UPDATE `users` SET `cookie`='".$key."' WHERE `email`='".$_SESSION['user']['email']."'";
+        $query = "UPDATE `users` SET `cookie`='$hash_key' WHERE `email`='".$_SESSION['user']['email']."'";
         mysqli_query($connection, $query);
     }
 

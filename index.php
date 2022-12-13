@@ -2,7 +2,7 @@
     session_start();
     require_once "assets/includes/config.php";
     require_once "assets/includes/functions.php";
-    include_once "assets/includes/cookie.php";
+    require "assets/includes/cookie.php";
 
     $products = get_objects('products');
 
