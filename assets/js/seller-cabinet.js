@@ -110,25 +110,35 @@ $(function () {
             });
         }
     });
+    let upd_image = false;
+    $('input[name="upd-image"]').change(function (e) {
+        upd_image = e.target.files[0];
+        console.log(upd_image.name);
+    });
+
 
     $('.update-product-area').on('submit', function (e)
     {
         e.preventDefault();
-        let addErrorsBlock = this.querySelector('.errors_block');
+        let updErrorsBlock = this.querySelector('.errors_block');
+        let button = this.querySelector('.button');
 
         clearErrors(this);
-        check_inputs(this, addErrorsBlock);
+        check_inputs(this, updErrorsBlock);
 
-        if (addErrorsBlock.innerHTML == ''){
+        if (updErrorsBlock.innerHTML == ''){
             let checkboxes = $('input[name="categories[]"]');
             let title = this.querySelector('input[name="title"]').value;
             let price = this.querySelector('input[name="price"]').value;
+            let id = this.querySelector('input[name="id"]').value;
 
             let formData = new FormData();
+            console.log(id);
+            formData.append('id', id);
             formData.append('title', title);
-            formData.append('image', image);
+            formData.append('image', upd_image);
             formData.append('price', price);
-            formData.append('seller_action', 'add');
+            formData.append('seller_action', 'update');
             for (let i = 0; i < checkboxes.length; i++) {
                 if (checkboxes[i].checked) {
                     formData.append('categories[]', checkboxes[i].value);
@@ -145,11 +155,11 @@ $(function () {
                 cache: false,
                 success: function (result) {
                     if (result.code == 'ok') {
-                        addErrorsBlock.innerHTML += '<p class="errors_block_good">' + result.message + '</p>';
+                        updErrorsBlock.innerHTML += '<p class="errors_block_good">' + result.message + '</p>';
 
                         setTimeout(redirect, 1000, '../pages/profile.php');
                     } else {
-                        addErrorsBlock.innerHTML += '<p class="errors_block_bad">' + result.message + '</p>';
+                        updErrorsBlock.innerHTML += '<p class="errors_block_bad">' + result.message + '</p>';
                     }
 
                 },

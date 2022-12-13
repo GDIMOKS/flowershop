@@ -1,5 +1,5 @@
 <?php
-    require "../includes/config.php";
+    require_once "../includes/config.php";
     session_start();
 
     include "../includes/cookie.php";

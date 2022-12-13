@@ -173,29 +173,36 @@
                     <div class="update-product-area none">
                         <?php foreach ($products as $product): ?>
 
-                            <div id="upd-prod-<?=$product['id']?>" class="product_row">
+                            <form id="upd-prod-<?=$product['id']?>" class="product_row" style="flex-direction: row; box-shadow: 0 0">
+                                <input type="text" name="id" value="<?=$product['id']?>" hidden>
                                 <img src="/assets/media/<?=$product['image']?>" class="mini_image">
                                 <div class="update_inputs">
-                                    <input type="file" name="image" placeholder="Изображение" value="<?=$product['image']?>">
-                                    <input type="text" name="title" placeholder="Название" value="<?=$product['name']?>">
-                                    <input type="number" name="price" step="0.01" placeholder="Стоимость" value="<?=$product['price']?>">
+                                    <div class="update_inputs">
+                                        <input type="file" name="upd-image" placeholder="Изображение" value="<?=$product['image']?>">
+                                        <input type="text" name="title" placeholder="Название" value="<?=$product['name']?>">
+                                        <input type="number" name="price" step="0.01" placeholder="Стоимость" value="<?=$product['price']?>">
 
-                                    <?php
-                                        $categories = get_objects('categories');
-                                    ?>
-                                    <div>
-                                        <?php echo 'Категории: ' ?>
-                                        <?php foreach ($categories as $category): ?>
+                                        <?php
+                                            $categories = get_objects('categories');
+                                        ?>
+                                        <div>
+                                            <?php echo 'Категории: ' ?>
+                                            <?php foreach ($categories as $category): ?>
 
-                                            <input class="form_checkbox tooltip" data-tooltip="<?= $category['name'] ?>" type="checkbox" name="categories[]" value="<?= $category['id'] ?>" checked="yes">
+                                                <input class="form_checkbox tooltip" data-tooltip="<?= $category['name'] ?>" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
 
 
-                                        <?php endforeach; ?>
+                                            <?php endforeach; ?>
+                                        </div>
                                     </div>
+                                    <div class="errors_block">
+
+                                    </div>
+
                                 </div>
 
-                                <a class="button update-to-db special_button" data-id="<?=$product['id']?>">Изменить</a>
-                            </div>
+                                <input class="button update-to-db special_button" value="Изменить" type="submit">
+                            </form>
 
                         <?php endforeach; ?>
                     </div>

@@ -54,7 +54,41 @@
                 break;
 
             case 'update':
+                if (!empty($_FILES['upd-image'])) {
+                    $file_name = time() . $_FILES['upd-image']['name'];
+                    move_uploaded_file($_FILES['upd-image']['tmp_name'], '../../media/' . $file_name);
+                } else {
+                    $file_name = 'no_image.jpg';
+                }
+                $title = $_POST['title'];
+                $price = $_POST['price'];
+                $id = $_POST['id'];
 
+                $query = "UPDATE `products` SET `name` = '$title', `price` = '$price', `image` = '$file_name' WHERE `id` = '$id'";
+
+                $check_exist = mysqli_query($connection, "SELECT COUNT('id') AS `total_count` FROM `products` WHERE (`name` = '$title' AND `id` != '$id')");
+                $is_exist = mysqli_fetch_assoc($check_exist);
+
+                if ($is_exist['total_count'] != 0) {
+                    echo json_encode(['code' => 'error', 'message' => 'Такой товар уже существует!']);
+                } else if ($result = !mysqli_query($connection, $query)) {
+                    echo $query;
+                    echo json_encode(['code' => 'error', 'message' => 'Ошибка во время обновления товара!']);
+                } else {
+                    $query = "SELECT * FROM `products` WHERE `name` = '$title'";
+
+                    $result = get_objects_query($query);
+
+                    if (isset($_POST['categories'])) {
+                        mysqli_query($connection, "DELETE * FROM `product_category` WHERE `product_id` = '$id'");
+                        foreach ($_POST['categories'] as $category) {
+
+                            mysqli_query($connection, "INSERT INTO `product_category` (`product_id`, `category_id`) VALUES ('$id', '$category')");
+                        }
+                    }
+
+                    echo json_encode(['code' => 'ok', 'message' => 'Товар успешно обновлен!']);
+                }
                 break;
         }
     }
