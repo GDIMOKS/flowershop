@@ -173,17 +173,22 @@
                     <div class="update-product-area none">
                         <?php foreach ($products as $product): ?>
 
-                            <form id="upd-prod-<?=$product['id']?>" class="product_row" style="flex-direction: row; box-shadow: 0 0">
+                            <form id="upd-prod-<?=$product['id']?>" data-id="<?=$product['id']?>" class="product_row" style="box-shadow: 0 0">
                                 <input type="text" name="id" value="<?=$product['id']?>" hidden>
-                                <img src="/assets/media/<?=$product['image']?>" class="mini_image">
+                                <img src="/assets/media/<?=$product['image']?>" class="mini_image" alt="<?=$product['image']?>">
                                 <div class="update_inputs">
                                     <div class="update_inputs">
-                                        <input type="file" name="upd-image" placeholder="Изображение" value="<?=$product['image']?>">
+                                        <input class="upd_image" type="file" name="upd-image" placeholder="Изображение" value="<?=$product['image']?>">
                                         <input type="text" name="title" placeholder="Название" value="<?=$product['name']?>">
                                         <input type="number" name="price" step="0.01" placeholder="Стоимость" value="<?=$product['price']?>">
 
                                         <?php
                                             $categories = get_objects('categories');
+//                                            $query = "SELECT `categories`.`id`, `categories`.`name`, `product_category`.`product_id` AS product_id FROM `categories`
+//                                                    LEFT OUTER JOIN `product_category` ON `categories`.`id` = `product_category`.`category_id`
+//                                                    WHERE product_category.product_id = ".$product['id']." OR `product_category`.`product_id` IS NULL;"
+//
+//                                            $categories = mysqli_fetch_assoc(mysqli_query($connection, $query));
                                         ?>
                                         <div>
                                             <?php echo 'Категории: ' ?>

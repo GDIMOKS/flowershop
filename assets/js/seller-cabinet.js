@@ -110,35 +110,39 @@ $(function () {
             });
         }
     });
-    let upd_image = false;
-    $('input[name="upd-image"]').change(function (e) {
-        upd_image = e.target.files[0];
-        console.log(upd_image.name);
-    });
 
-
-    $('.update-product-area').on('submit', function (e)
-    {
+    $('.product_row').on('submit', function (e) {
         e.preventDefault();
         let updErrorsBlock = this.querySelector('.errors_block');
-        let button = this.querySelector('.button');
-
-        clearErrors(this);
-        check_inputs(this, updErrorsBlock);
+        let form = this;
+        clearErrors(form);
+        check_inputs(form, updErrorsBlock);
 
         if (updErrorsBlock.innerHTML == ''){
             let checkboxes = $('input[name="categories[]"]');
-            let title = this.querySelector('input[name="title"]').value;
-            let price = this.querySelector('input[name="price"]').value;
-            let id = this.querySelector('input[name="id"]').value;
+            let title = form.querySelector('input[name="title"]').value;
+            let price = form.querySelector('input[name="price"]').value;
+            let id = form.querySelector('input[name="id"]').value;
+
 
             let formData = new FormData();
-            console.log(id);
+
+            let upd_image = $(form).find('input[name="upd-image"]')[0].files[0];
+
+            if (upd_image == undefined) {
+                upd_image = $(form).find('input[name="upd-image"]').attr('value');
+                if (upd_image != "") {
+                    formData.append('image', upd_image);
+                }
+            } else {
+                formData.append('upd-image', upd_image);
+            }
+
             formData.append('id', id);
             formData.append('title', title);
-            formData.append('image', upd_image);
             formData.append('price', price);
             formData.append('seller_action', 'update');
+
             for (let i = 0; i < checkboxes.length; i++) {
                 if (checkboxes[i].checked) {
                     formData.append('categories[]', checkboxes[i].value);
@@ -156,8 +160,8 @@ $(function () {
                 success: function (result) {
                     if (result.code == 'ok') {
                         updErrorsBlock.innerHTML += '<p class="errors_block_good">' + result.message + '</p>';
-
-                        setTimeout(redirect, 1000, '../pages/profile.php');
+                        $(form).find('img')[0].src = result.image;
+                        // setTimeout(redirect, 1000, '../pages/profile.php');
                     } else {
                         updErrorsBlock.innerHTML += '<p class="errors_block_bad">' + result.message + '</p>';
                     }
@@ -205,7 +209,6 @@ let check_inputs = function (addForm, addErrorsBlock) {
     let errors = [];
 
     let title = addForm.querySelector('[name=title]');
-    // let image = addForm.querySelector('[name=image]');
     let price = addForm.querySelector('[name=price]');
 
     checkName(title, errors);

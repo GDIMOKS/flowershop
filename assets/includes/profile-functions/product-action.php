@@ -57,9 +57,12 @@
                 if (!empty($_FILES['upd-image'])) {
                     $file_name = time() . $_FILES['upd-image']['name'];
                     move_uploaded_file($_FILES['upd-image']['tmp_name'], '../../media/' . $file_name);
+                } elseif (isset($_POST['image'])) {
+                    $file_name = $_POST['image'];
                 } else {
                     $file_name = 'no_image.jpg';
                 }
+
                 $title = $_POST['title'];
                 $price = $_POST['price'];
                 $id = $_POST['id'];
@@ -87,7 +90,7 @@
                         }
                     }
 
-                    echo json_encode(['code' => 'ok', 'message' => 'Товар успешно обновлен!']);
+                    echo json_encode(['code' => 'ok', 'message' => 'Товар успешно обновлен!', 'image' => $config['uploads'] . $file_name]);
                 }
                 break;
         }
