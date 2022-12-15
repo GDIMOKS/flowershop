@@ -111,6 +111,16 @@ export let formEvent = function (form, errorsBlock, urlRequest, urlRedirect) {
     }
 }
 
+export function hide_areas(areas, current_area) {
+    for (let i = 0; i < areas.length; i++) {
+        if (areas[i] != current_area) {
+            if (!areas[i].hasClass('none')) {
+                areas[i].addClass('none');
+            }
+        }
+    }
+}
+
 
 
 

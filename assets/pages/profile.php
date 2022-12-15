@@ -107,7 +107,8 @@
                         <?php break; ?>
 
                     <?php case '2': ?>
-
+                        <a class="button edit-info">Редактирование данных</a>
+                        <a class="button show-orders">Просмотр заказов</a>
 
                         <?php break; ?>
 
@@ -122,96 +123,130 @@
                     <?php endswitch ?>
                 </div>
                 <div class="information_block">
-                    <form class="add-product-form">
+                    <?php switch ($_SESSION['user']['role_id']): ?><?php case '1': ?>
 
-                        <label>Название товара</label>
-                        <input type="text" name="title" placeholder="Введите название" autofocus>
 
-                        <label>Изображение товара</label>
-                        <input type="file" name="image" placeholder="Выберите изображение">
 
-                        <label>Стоимость товара</label>
-                        <input type="number" name="price" step="0.01" placeholder="Введите стоимость">
+                        <?php break; ?>
 
-                        <label>Категории товара:</label>
-                        <div style="display: flex; width: 100%; flex-wrap: wrap; justify-content: space-around">
-                            <?php
+                    <?php case '2': ?>
+                        <form class="update-info-form">
+
+                        </form>
+
+                        <form class="show-orders-form none">
+                            <input type="date" name="begin-date">
+                            <input type="date" name="end-date">
+                            <input class="button" type="submit" value="Поиск">
+
+                            <div class="errors_block">
+
+                            </div>
+                        </form>
+
+                        <?php break; ?>
+
+                    <?php case '3': ?>
+                        <form class="add-product-form">
+
+                            <label>Название товара</label>
+                            <input type="text" name="title" placeholder="Введите название" autofocus>
+
+                            <label>Изображение товара</label>
+                            <input type="file" name="image" placeholder="Выберите изображение">
+
+                            <label>Стоимость товара</label>
+                            <input type="number" name="price" step="0.01" placeholder="Введите стоимость">
+
+                            <label>Категории товара:</label>
+                            <div style="display: flex; width: 100%; flex-wrap: wrap; justify-content: space-around">
+                                <?php
                                 $categories = get_objects('categories');
-                            ?>
-                            <?php foreach ($categories as $category): ?>
-                                <div class="category_checkbox">
-                                    <label><?= $category['name'] ?></label>
-                                    <input class="form_checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
+                                ?>
+                                <?php foreach ($categories as $category): ?>
+                                    <div class="category_checkbox">
+                                        <label><?= $category['name'] ?></label>
+                                        <input class="form_checkbox" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <button class="button" type="submit">Добавить товар</button>
+
+                            <div class="errors_block">
+
+                            </div>
+
+                        </form>
+
+                        <?php
+                            $products = get_objects('products');
+                        ?>
+                        <div class="delete-product-area none">
+                            <?php foreach ($products as $product): ?>
+
+                                <div id="del-prod-<?=$product['id']?>" class="product_row">
+                                    <img src="/assets/media/<?=$product['image']?>" class="mini_image">
+                                    <div class="product_row_name"><?=$product['name']?></div>
+                                    <div class="product_row_price"><?=$product['price']?> ₽</div>
+                                    <a class="button delete-from-db special_button" data-id="<?=$product['id']?>">Удалить</a>
                                 </div>
+
                             <?php endforeach; ?>
                         </div>
 
-                        <button class="button" type="submit">Добавить товар</button>
+                        <div class="update-product-area none">
+                            <?php foreach ($products as $product): ?>
 
-                        <div class="errors_block">
+                                <form id="upd-prod-<?=$product['id']?>" data-id="<?=$product['id']?>" class="product_row" style="box-shadow: 0 0">
+                                    <input type="text" name="id" value="<?=$product['id']?>" hidden>
+                                    <img src="/assets/media/<?=$product['image']?>" class="mini_image" alt="<?=$product['image']?>">
+                                    <div class="update_inputs">
+                                        <div class="update_inputs">
+                                            <input class="upd_image" type="file" name="upd-image" placeholder="Изображение" value="<?=$product['image']?>">
+                                            <input type="text" name="title" placeholder="Название" value="<?=$product['name']?>">
+                                            <input type="number" name="price" step="0.01" placeholder="Стоимость" value="<?=$product['price']?>">
 
+                                            <?php
+                                            $categories = get_objects('categories');
+                                            //                                            $query = "SELECT `categories`.`id`, `categories`.`name`, `product_category`.`product_id` AS product_id FROM `categories`
+                                            //                                                    LEFT OUTER JOIN `product_category` ON `categories`.`id` = `product_category`.`category_id`
+                                            //                                                    WHERE product_category.product_id = ".$product['id']." OR `product_category`.`product_id` IS NULL;"
+                                            //
+                                            //                                            $categories = mysqli_fetch_assoc(mysqli_query($connection, $query));
+                                            ?>
+                                            <div>
+                                                <?php echo 'Категории: ' ?>
+                                                <?php foreach ($categories as $category): ?>
+
+                                                    <input class="form_checkbox tooltip" data-tooltip="<?= $category['name'] ?>" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
+
+
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                        <div class="errors_block">
+
+                                        </div>
+
+                                    </div>
+
+                                    <input class="button update-to-db special_button" value="Изменить" type="submit">
+                                </form>
+
+                            <?php endforeach; ?>
                         </div>
 
-                    </form>
+                        <?php break; ?>
 
-                    <?php
-                        $products = get_objects('products');
-                    ?>
-                    <div class="delete-product-area none">
-                        <?php foreach ($products as $product): ?>
-
-                            <div id="del-prod-<?=$product['id']?>" class="product_row">
-                                <img src="/assets/media/<?=$product['image']?>" class="mini_image">
-                                <div class="product_row_name"><?=$product['name']?></div>
-                                <div class="product_row_price"><?=$product['price']?> ₽</div>
-                                <a class="button delete-from-db special_button" data-id="<?=$product['id']?>">Удалить</a>
-                            </div>
-
-                        <?php endforeach; ?>
-                    </div>
-
-                    <div class="update-product-area none">
-                        <?php foreach ($products as $product): ?>
-
-                            <form id="upd-prod-<?=$product['id']?>" data-id="<?=$product['id']?>" class="product_row" style="box-shadow: 0 0">
-                                <input type="text" name="id" value="<?=$product['id']?>" hidden>
-                                <img src="/assets/media/<?=$product['image']?>" class="mini_image" alt="<?=$product['image']?>">
-                                <div class="update_inputs">
-                                    <div class="update_inputs">
-                                        <input class="upd_image" type="file" name="upd-image" placeholder="Изображение" value="<?=$product['image']?>">
-                                        <input type="text" name="title" placeholder="Название" value="<?=$product['name']?>">
-                                        <input type="number" name="price" step="0.01" placeholder="Стоимость" value="<?=$product['price']?>">
-
-                                        <?php
-                                            $categories = get_objects('categories');
-//                                            $query = "SELECT `categories`.`id`, `categories`.`name`, `product_category`.`product_id` AS product_id FROM `categories`
-//                                                    LEFT OUTER JOIN `product_category` ON `categories`.`id` = `product_category`.`category_id`
-//                                                    WHERE product_category.product_id = ".$product['id']." OR `product_category`.`product_id` IS NULL;"
-//
-//                                            $categories = mysqli_fetch_assoc(mysqli_query($connection, $query));
-                                        ?>
-                                        <div>
-                                            <?php echo 'Категории: ' ?>
-                                            <?php foreach ($categories as $category): ?>
-
-                                                <input class="form_checkbox tooltip" data-tooltip="<?= $category['name'] ?>" type="checkbox" name="categories[]" value="<?= $category['id'] ?>">
+                    <?php endswitch ?>
 
 
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>
-                                    <div class="errors_block">
-
-                                    </div>
-
-                                </div>
-
-                                <input class="button update-to-db special_button" value="Изменить" type="submit">
-                            </form>
-
-                        <?php endforeach; ?>
-                    </div>
-
+                </div>
+            </div>
+            <div class="order_area">
+                <div class=".order">
+                    adas
                 </div>
             </div>
 
@@ -219,6 +254,7 @@
 
     </div>
     <script type="module" src="../js/seller-cabinet.js"></script>
+    <script type="module" src="../js/client-cabinet.js"></script>
 </body>
 </html>
 <?php

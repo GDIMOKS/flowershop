@@ -2,11 +2,13 @@ import {
     clearErrors,
     checkName,
     changeColor,
-    generateErrors, redirect, checkEmail, checkCaptcha,
+    generateErrors,
+    redirect,
+    hide_areas
 } from "./functions.js";
 
 $(function () {
-    let areas = [$('.add-product-form'), $('.delete-product-area'), $('.update-product-area'), $('.update-status-area')]
+    let areas = [$('.add-product-form'), $('.delete-product-area'), $('.update-product-area'), $('.update-status-area')];
 
     $('.add-product').on('click', function (e) {
         e.preventDefault();
@@ -38,7 +40,7 @@ $(function () {
         let id = $(this).data('id');
 
         $.ajax({
-            url: '/assets/includes/profile-functions/product-action.php',
+            url: '/assets/includes/profile-functions/seller-actions.php',
             type: 'POST',
             data: {seller_action: 'delete', id: id},
             dataType: 'json',
@@ -87,7 +89,7 @@ $(function () {
             }
 
             $.ajax({
-                url: '/assets/includes/profile-functions/product-action.php',
+                url: '/assets/includes/profile-functions/seller-actions.php',
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
@@ -150,7 +152,7 @@ $(function () {
             }
 
             $.ajax({
-                url: '/assets/includes/profile-functions/product-action.php',
+                url: '/assets/includes/profile-functions/seller-actions.php',
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
@@ -175,15 +177,6 @@ $(function () {
     });
 });
 
-function hide_areas(areas, current_area) {
-    for (let i = 0; i < areas.length; i++) {
-        if (areas[i] != current_area) {
-            if (!areas[i].hasClass('none')) {
-                areas[i].addClass('none');
-            }
-        }
-    }
-}
 
 
 function checkPrice(price, errors){

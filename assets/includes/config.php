@@ -7,7 +7,7 @@
         'db' => array(
             'server' => 'localhost',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '',
             'name' => 'flowershop'
         )
     );

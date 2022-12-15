@@ -277,3 +277,27 @@ ul {
 }
 
 
+
+/*orders*/
+.order_area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    /*width: 100%;*/
+    border-radius: 5px;
+    border: #c9cad4 solid 1px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+

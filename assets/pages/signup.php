@@ -1,6 +1,7 @@
 <?php
     session_start();
     require "../includes/config.php";
+    require_once "../includes/functions.php";
     include "../includes/cookie.php";
 
     if (!empty($_SESSION['auth']) || $_SESSION['auth'] == true)

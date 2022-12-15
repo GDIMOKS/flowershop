@@ -10,7 +10,6 @@
     }
 
     function updateCookie() {
-        //session_start();
         global $connection;
 
         $key = generateSalt();
