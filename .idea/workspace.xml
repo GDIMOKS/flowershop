@@ -5,20 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ccaf4c0-74e3-4bef-962c-eb4ac2a8ac3f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/includes/orders.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/client-cabinet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/includes/profile-functions/owner_cabinet.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/cart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/cart-objects.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/cart-objects.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/includes/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/includes/profile-functions/product-action.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/profile-functions/seller-actions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/includes/profile-functions/update-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/profile-functions/client-actions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/profile-functions/client-actions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/profile-functions/client-actions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/profile-functions/seller-actions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/profile-functions/seller-actions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/client-cabinet.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/client-cabinet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/product-actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/owner-cabinet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/seller-cabinet.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/seller-cabinet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/media/1670976352first_bouqet.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/media/1670989824first_bouqet.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/media/first_bouqet.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/signin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/signup.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +136,8 @@
       <workItem from="1670832117236" duration="14859000" />
       <workItem from="1670926103715" duration="4268000" />
       <workItem from="1670961746732" duration="27386000" />
-      <workItem from="1671018991490" duration="32216000" />
+      <workItem from="1671018991490" duration="32811000" />
+      <workItem from="1671668073706" duration="15441000" />
     </task>
     <servers />
   </component>

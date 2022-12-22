@@ -15,10 +15,10 @@ export let checkName = function (firstname, errors) {
     if (firstname.value.length == 0) {
         nameErrors.push('Не указано имя');
     } else {
-        let regExp = /^[А-Яа-яЁё' .(),-]+$/g;
+        let regExp = /^[А-Яа-яЁё" .(),-]+$/g;
         if (!regExp.exec(firstname.value)) {
 
-            nameErrors.push('Имя может содержать только кириллицу, пробел и следующие символы: \' , \( \) \. -');
+            nameErrors.push('Имя может содержать только кириллицу, пробел и следующие символы: " , \( \) \. -');
         }
     }
 
@@ -119,6 +119,33 @@ export function hide_areas(areas, current_area) {
             }
         }
     }
+}
+
+export function checkDate(begin, end, errors) {
+    let beginDateErrors = [];
+    let endDateErrors = [];
+
+    if (begin.value != '' && end.value != '') {
+        if (begin.value > end.value) {
+            endDateErrors.push('Конечная дата должна быть больше начальной');
+            beginDateErrors.push('Начальная дата должна быть меньше конечной');
+        }
+    }
+
+
+    errors = changeColor(begin, beginDateErrors, errors);
+    errors = changeColor(end, endDateErrors, errors);
+
+    return errors;
+}
+
+export function checkDateInputs(begin_date, end_date, showErrorsBlock) {
+    let errors = [];
+
+    checkDate(begin_date, end_date, errors);
+
+    generateErrors(showErrorsBlock, errors);
+
 }
 
 

@@ -84,14 +84,41 @@
 
                     if (isset($_POST['categories'])) {
                         mysqli_query($connection, "DELETE * FROM `product_category` WHERE `product_id` = '$id'");
-                        foreach ($_POST['categories'] as $category) {
+                        foreach ($_POST['categories'] as $category => $checked) {
+                            $is_exist = mysqli_fetch_assoc(mysqli_query($connection, "SELECT COUNT(`category_id`) AS `total_count` FROM `product_category` WHERE (`product_id` = '$id' AND `category_id` = $category)"));
 
-                            mysqli_query($connection, "INSERT INTO `product_category` (`product_id`, `category_id`) VALUES ('$id', '$category')");
+                            if ($is_exist['total_count'] == 0) {
+                                if ($checked['value'] == 'true') {
+                                    mysqli_query($connection, "INSERT INTO `product_category` (`product_id`, `category_id`) VALUES ('$id', '$category')");
+//                                    debug("INSERT INTO `product_category` (`product_id`, `category_id`) VALUES ('$id', '$category')");
+                                }
+                            } else {
+                                if ($checked['value'] == 'false') {
+                                    mysqli_query($connection, "DELETE FROM `product_category` WHERE `product_category`.`product_id` = $id AND `product_category`.`category_id` = $category");
+//                                    debug("DELETE FROM `product_category` WHERE `product_category`.`product_id` = $id AND `product_category`.`category_id` = $category");
+                                }
+                            }
                         }
+
                     }
 
                     echo json_encode(['code' => 'ok', 'message' => 'Товар успешно обновлен!', 'image' => $config['uploads'] . $file_name]);
                 }
+                break;
+
+            case 'change_status':
+                $id = $_SESSION['user']['id'];
+                $date = date("Y.m.d H:i:s");
+                $query = "UPDATE `orders` SET `status` = 'Оплачен', `seller_id` = '$id', `purchase_time` = '$date' WHERE `id` =" . $_POST['id'];
+
+
+                if ($result = !mysqli_query($connection, $query)) {
+                    echo json_encode(['code' => 'error', 'answer' => $result]);
+
+                } else {
+                    echo json_encode(['code' => 'ok']);
+                }
+
                 break;
         }
     }

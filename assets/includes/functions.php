@@ -10,6 +10,7 @@
     }
 
     function updateCookie() {
+        //session_start();
         global $connection;
 
         $key = generateSalt();
@@ -83,3 +84,28 @@
 
         return !empty($product_result) ? $product_result : false;
     }
+
+    function clear_cart() {
+        unset($_SESSION['cart']);
+        $_SESSION['cart.count'] = 0;
+        $_SESSION['cart.sum'] = 0;
+    }
+
+function get_orders($query) {
+    global $config;
+
+    $orders = get_objects_query($query);
+    for ($i = 0; $i < count($orders); $i++) {
+        $query = "SELECT * FROM `products` INNER JOIN `product_order` ON `product_order`.`product_id` = `products`.`id` WHERE `product_order`.`order_id`=" . $orders[$i]['id'];
+
+        if ($products = get_objects_query($query)) {
+            for ($j = 0; $j < count($products); $j++) {
+                $products[$j]['image'] = $config['uploads'] . $products[$j]['image'];
+            }
+            $orders[$i]['products'] = $products;
+        }
+
+    }
+
+    return $orders;
+}

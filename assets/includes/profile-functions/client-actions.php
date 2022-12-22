@@ -9,34 +9,26 @@
         switch ($_POST['client_action']) {
             case 'show':
 
+                $begin_date = $_POST['begin-date'];
+                $end_date = $_POST['end-date'];
+
+                if ($begin_date == null) {
+                    $begin_date = date("Y.m.d H:i:s", null);
+                }
+                if ($end_date == null) {
+                    $end_date = date("Y.m.d H:i:s");
+                }
+
+                $query = "SELECT * FROM `orders` WHERE `client_id` = ". $_SESSION['user']['id']." AND `ordering_time` BETWEEN '$begin_date' AND '$end_date'";
 
 
-                $begin_date = date("Y.m.d", strtotime($_POST['begin-date']));
-                $end_date = date("Y.m.d", strtotime($_POST['end-date']));
-                $query = "";
+                if ($result = mysqli_query($connection, $query)) {
+                    $orders = get_orders($query);
 
-                if (empty($begin_date) && empty($end_date)) {
-                    $query = "SELECT * FROM `orders` WHERE `client_id` = ". $_SESSION['user']['id'];
-                    debug('1');
-                } elseif (empty($begin_date) && !empty($end_date)) {
-                    $query = "SELECT * FROM `orders` WHERE `client_id` = ". $_SESSION['user']['id']." AND `ordering_time` <= '$end_date'";
-                    debug('2');
-                } elseif (empty($end_date) && !empty($begin_date)) {
-                    $query = "SELECT * FROM `orders` WHERE `client_id` = ". $_SESSION['user']['id']." AND `ordering_time` >= '$begin_date'";
-                    debug('3');
+                    echo json_encode(['code' => 'ok', 'orders' => $orders]);
                 } else {
-                    $query = "SELECT * FROM `orders` WHERE `client_id` = ". $_SESSION['user']['id']." AND `ordering_time` BETWEEN '$begin_date' AND '$end_date'";
-                    debug('4');
+                    echo json_encode(['code' => 'error', 'message' => 'Ошибка во время выполнения запроса!']);
                 }
-
-                $result = mysqli_query($connection, $query);
-                if ($result) {
-                    $orders = mysqli_fetch_assoc($result);
-
-
-                }
-
-
 
                 break;
 

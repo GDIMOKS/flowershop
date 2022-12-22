@@ -17,7 +17,7 @@
                 } else {
                     add_to_cart($product);
 
-                    echo json_encode(['code' => 'ok', 'answer' => $product, 'total_count' => $_SESSION['cart.count'], 'count' => $_SESSION['cart'][$product['id']]['count']]);
+                    echo json_encode(['code' => 'ok', 'product' => $product, 'total_count' => $_SESSION['cart.count'], 'count' => $_SESSION['cart'][$product['id']]['count'], 'total_sum' => $_SESSION['cart.sum']]);
 
                 }
 
@@ -33,11 +33,45 @@
                 } else {
                     del_from_cart($product);
                     $count = $_SESSION['cart'][$product['id']]['count'] ?? 0;
-                    echo json_encode(['code' => 'ok', 'answer' => $product, 'total_count' => $_SESSION['cart.count'] ?? 0, 'count' => $count]);
+                    echo json_encode(['code' => 'ok', 'product' => $product, 'total_count' => $_SESSION['cart.count'] ?? 0, 'count' => $count, 'total_sum' => $_SESSION['cart.sum']]);
                 }
                 break;
         }
     }
+
+    if (isset($_POST['cart'])) {
+        switch ($_POST['cart']) {
+            case 'checkout':
+                if (isset($_SESSION['cart'])) {
+                    if( isset($_SESSION['user'])) {
+
+                        $query = "INSERT INTO `orders` (`client_id`) VALUES ('" . $_SESSION['user']['id']. "')";
+                        $result = mysqli_query($connection, $query);
+
+                        $order_id = mysqli_insert_id($connection);
+
+                        foreach ($_SESSION['cart'] as $id => $product) {
+                            $query = "INSERT INTO `product_order` (`order_id`, `product_id`, `count`) VALUES ('$order_id', '".$id."', '".$product['count']."')";
+
+                            $result = mysqli_query($connection, $query);
+                        }
+
+                        if (!$result) {
+                            echo json_encode(['code' => 'error', 'answer' => 'Error product']);
+
+                        } else {
+                            clear_cart();
+                            echo json_encode(['code' => 'ok', 'answer' => $order_id]);
+                        }
+
+                    }
+
+                }
+                break;
+
+        }
+    }
+
 
 //    debug($_SESSION['cart']);
 ?>

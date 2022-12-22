@@ -1,18 +1,18 @@
 import {
     changeColor,
     generateErrors,
-    hide_areas
+    hide_areas,
+    checkDateInputs
 } from "./functions.js";
 
 $(function () {
-    let areas = [$('.show-orders-form'), $('.update-info-form')];
+    let areas = [$('.show-orders-area'), $('.update-info-form')];
 
     $('.show-orders').on('click', function (e) {
         e.preventDefault();
+        hide_areas(areas, '.show-orders-area');
 
-        hide_areas(areas, '.show-orders-form');
-
-        $('.show-orders-form').toggleClass('none');
+        $('.show-orders-area').toggleClass('none');
     });
 
     $('.edit-info').on('click', function (e) {
@@ -25,6 +25,8 @@ $(function () {
 
     $('.show-orders-form').on('submit', function (e) {
         e.preventDefault();
+        $('.order_area').empty();
+
         let form = this;
 
         let ordersErrorsBlock = form.querySelector('.errors_block');
@@ -48,8 +50,35 @@ $(function () {
                 dataType: 'json',
                 success: function (result) {
                     if (result.code == 'ok') {
-                        ordersErrorsBlock.innerHTML += '<p class="errors_block_good">' + result.message + '</p>';
-                        // $(form).find('img')[0].src = result.image;
+                        for (let i = 0; i < result.orders.length; i++) {
+                            let sum = 0;
+                            let order_area = $('<div class="order"></div>').appendTo('.order_area');
+
+                            let order = result.orders[i];
+
+                            $('<div class="date_order">Заказ № ' + order.id + ' от ' + order.ordering_time + '</div>').appendTo(order_area);
+
+                            let products = order.products;
+                            if (products != undefined) {
+                                for (let j = 0; j < products.length; j++) {
+                                    let product_area = $('<a class="product_area" href="#"></a>').appendTo(order_area);
+                                    $('<div class="container">' +
+                                        '<img src="' + products[j].image + '" alt="Товар">' +
+                                        '<div class="text title">' + products[j].name + '</div>' +
+                                        '</div>').appendTo(product_area);
+                                    $('<div class="container">' +
+                                        '<div class="text">Количество: ' + products[j].count + ' штук</div>' +
+                                        '<div class="text">Цена: ' + products[j].price * products[j].count + ' ₽</div>' +
+                                        '</div>').appendTo(product_area);
+                                    sum += products[j].price * products[j].count;
+                                }
+                            }
+
+                            $('<div class="status_sum">' +
+                                '<div class="status">Статус: ' + order.status + '</div>' +
+                                '<div class="sum">Общая сумма: ' + sum + ' ₽</div>' +
+                                '</div>').appendTo(order_area);
+                        }
                     } else {
                         ordersErrorsBlock.innerHTML += '<p class="errors_block_bad">' + result.message + '</p>';
                     }
@@ -64,29 +93,3 @@ $(function () {
     });
 });
 
-function checkDate(begin, end, errors) {
-    let beginDateErrors = [];
-    let endDateErrors = [];
-
-    if (begin.value != '' && end.value != '') {
-        if (begin.value > end.value) {
-            endDateErrors.push('Конечная дата должна быть больше начальной');
-            beginDateErrors.push('Начальная дата должна быть меньше конечной');
-        }
-    }
-
-
-    errors = changeColor(begin, beginDateErrors, errors);
-    errors = changeColor(end, endDateErrors, errors);
-
-    return errors;
-}
-
-function checkDateInputs(begin_date, end_date, showErrorsBlock) {
-    let errors = [];
-
-    checkDate(begin_date, end_date, errors);
-
-    generateErrors(showErrorsBlock, errors);
-
-}

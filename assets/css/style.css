@@ -103,6 +103,7 @@ ul {
     flex-wrap: wrap;
 }
 
+
 .logout {
     display: flex;
     height: 75px;
@@ -281,23 +282,27 @@ ul {
 /*orders*/
 .order_area {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 100%;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.update-status-area,
+.show-orders-area {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    width: 100%;
+    margin: auto;
 }
 
 .order {
+    box-shadow: 0 0 10px #00000020;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: max-content;
-    margin: auto;
-    align-items: center;
-    justify-content: space-between;
-    /*width: 100%;*/
-    border-radius: 5px;
-    border: #c9cad4 solid 1px;
-    padding: 10px;
-    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: inherit;
 }
 
 

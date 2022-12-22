@@ -1,6 +1,5 @@
 import {
     clearErrors,
-    checkName,
     changeColor,
     generateErrors,
     redirect,
@@ -32,6 +31,14 @@ $(function () {
         hide_areas(areas, '.update-product-area');
 
         $('.update-product-area').toggleClass('none');
+    });
+
+    $('.update-status').on('click', function (e) {
+        e.preventDefault();
+
+        hide_areas(areas, '.update-status-area');
+
+        $('.update-status-area').toggleClass('none');
     });
 
     $('.delete-from-db').on('click', function (e) {
@@ -121,7 +128,7 @@ $(function () {
         check_inputs(form, updErrorsBlock);
 
         if (updErrorsBlock.innerHTML == ''){
-            let checkboxes = $('input[name="categories[]"]');
+            let checkboxes = form.querySelectorAll('input[name="categories[]"]');
             let title = form.querySelector('input[name="title"]').value;
             let price = form.querySelector('input[name="price"]').value;
             let id = form.querySelector('input[name="id"]').value;
@@ -147,7 +154,9 @@ $(function () {
 
             for (let i = 0; i < checkboxes.length; i++) {
                 if (checkboxes[i].checked) {
-                    formData.append('categories[]', checkboxes[i].value);
+                    formData.append('categories['+checkboxes[i].value+'][value]', 'true');
+                } else {
+                    formData.append('categories['+checkboxes[i].value+'][value]', 'false');
                 }
             }
 
@@ -175,9 +184,51 @@ $(function () {
             });
         }
     });
+
+    $('.payday').on('click', function (e) {
+        e.preventDefault();
+
+        let id = $(this).data('id');
+        let parent = $(this).closest('.order');
+
+        $.ajax({
+            url: '/assets/includes/profile-functions/seller-actions.php',
+            type: 'POST',
+            data: {seller_action: 'change_status', id: id},
+            dataType: 'json',
+            success: function (result) {
+                if (result.code == 'ok') {
+                    $(parent).empty();
+                    $(parent).text('Статус заказа № ' + id + ' обновлен на "Оплачен"!');
+                } else {
+                    console.log();
+                }
+
+            },
+            error: function () {
+                console.log('Error!');
+            }
+        });
+    });
 });
 
+export let checkName = function (name, errors) {
+    let nameErrors = [];
 
+    if (name.value.length == 0) {
+        nameErrors.push('Не указано имя');
+    } else {
+        let regExp = /^[А-Яа-яЁё"0-9 .(),-]+$/g;
+        if (!regExp.exec(name.value)) {
+
+            nameErrors.push('Название может содержать только кириллицу, пробел, цифры и следующие символы: " , \( \) \. -');
+        }
+    }
+
+    errors = changeColor(name, nameErrors, errors);
+
+    return errors;
+}
 
 function checkPrice(price, errors){
     let priceErrors = [];

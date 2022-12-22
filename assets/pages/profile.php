@@ -18,6 +18,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/orders.css">
+
     <title>Личный кабинет</title>
 
     <script type="text/javascript" src="/assets/js/jquery-3.6.1.min.js"></script>
@@ -130,23 +132,24 @@
                         <?php break; ?>
 
                     <?php case '2': ?>
-                        <form class="update-info-form">
 
-                        </form>
+                        <div class="show-orders-area none">
+                            <form class="show-orders-form">
+                                <input type="date" name="begin-date">
+                                <input type="date" name="end-date">
+                                <input class="button" type="submit" value="Поиск">
 
-                        <form class="show-orders-form none">
-                            <input type="date" name="begin-date">
-                            <input type="date" name="end-date">
-                            <input class="button" type="submit" value="Поиск">
+                                <div class="errors_block">
 
-                            <div class="errors_block">
+                                </div>
+                            </form>
 
-                            </div>
-                        </form>
+                        </div>
 
                         <?php break; ?>
 
                     <?php case '3': ?>
+
                         <form class="add-product-form">
 
                             <label>Название товара</label>
@@ -204,7 +207,7 @@
                                     <div class="update_inputs">
                                         <div class="update_inputs">
                                             <input class="upd_image" type="file" name="upd-image" placeholder="Изображение" value="<?=$product['image']?>">
-                                            <input type="text" name="title" placeholder="Название" value="<?=$product['name']?>">
+                                            <input type="text" name="title" placeholder="Название" value='<?=$product['name']?>'>
                                             <input type="number" name="price" step="0.01" placeholder="Стоимость" value="<?=$product['price']?>">
 
                                             <?php
@@ -244,17 +247,92 @@
 
                 </div>
             </div>
-            <div class="order_area">
-                <div class=".order">
-                    adas
+
+            <?php switch($_SESSION['user']['role_id']): ?><?php case '1':?>
+                    <form class="rating-profit-form">
+                        <input type="date" name="begin-date">
+                        <input type="date" name="end-date">
+
+                        <a class="button check-rating">Посмотреть рейтинг</a>
+                        <a class="button check-profit">Посмотреть прибыль</a>
+
+                        <div class="errors_block">
+
+                        </div>
+                    </form>
+
+                    <div class="order_area">
+
+                    </div>
+
+
+                <?php break;?>
+            <?php case '2':?>
+                <div class="show-orders-area none">
+                    <div class="order_area">
+
+                    </div>
                 </div>
-            </div>
+                <?php break; ?>
+                <?php case '3':?>
+                <div class="update-status-area none">
+                    <h1>Заказы</h1>
+                    <div class="order_area">
+                        <?php
+                            $query = "SELECT * FROM `orders` WHERE `status` = 'Оформлен'";
+                        ?>
+                        <?php if ($result = mysqli_query($connection, $query)): ?>
+                            <?php $orders = get_orders($query); ?>
+                            <?php foreach ($orders as $order): ?>
+                                <?php
+                                    $sum = 0;
+                                ?>
+                                <div class="order">
+                                    <div class="date_order">
+                                        Заказ № <?=$order['id']?> от <?=$order['ordering_time']?>
+                                    </div>
+
+                                    <?php if (isset($order['products'])) : ?>
+                                        <?php foreach ($order['products'] as $product) :?>
+                                            <a class="product_area" href="#">
+                                                <div class="container">
+                                                    <img src="<?=$product['image']?>" alt="Товар">
+                                                    <div class="text title"><?=$product['name']?></div>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="text">Количество: <?=$product['count']?> штук</div>
+                                                    <div class="text">Цена: <?=$product['price'] * $product['count']?> ₽</div>
+                                                    <?php
+                                                    $sum += $product['price'] * $product['count'];
+                                                    ?>
+                                                </div>
+                                            </a>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+
+
+                                    <div class="status_sum">
+                                        <div class="status">Статус: <?=$order['status']?>  </div>
+                                        <div class="sum">Общая сумма: <?=$sum?> ₽</div>
+                                    </div>
+                                    <button class="button payday" data-id="<?=$order['id']?>">Подтвердить оплату</button>
+                                </div>
+
+                            <?php endforeach; ?>
+                        <?php endif;?>
+                    </div>
+                </div>
+
+                <?php break; ?>
+            <?php endswitch; ?>
+
 
         </div>
 
     </div>
     <script type="module" src="../js/seller-cabinet.js"></script>
     <script type="module" src="../js/client-cabinet.js"></script>
+    <script type="module" src="../js/owner-cabinet.js"></script>
 </body>
 </html>
 <?php
