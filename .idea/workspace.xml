@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ccaf4c0-74e3-4bef-962c-eb4ac2a8ac3f" name="Changes" comment="" />
+    <list default="true" id="7ccaf4c0-74e3-4bef-962c-eb4ac2a8ac3f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/includes/profile-functions/owner_cabinet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/cart-objects.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/cart-objects.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/profile-functions/client-actions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/profile-functions/client-actions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/includes/profile-functions/seller-actions.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/includes/profile-functions/seller-actions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/client-cabinet.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/client-cabinet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/product-actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/owner-cabinet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/seller-cabinet.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/seller-cabinet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/media/1670976352first_bouqet.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/media/1670989824first_bouqet.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/media/first_bouqet.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/profile.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,11 +32,26 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2HUWCVagYFB4H5koYNWyWK7QIsN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,21 +62,44 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/php/php8.1/php.ini&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\flowershop\assets\includes" />
+      <recent name="C:\OpenServer\domains\flowershop" />
+      <recent name="C:\OpenServer\domains\flowershop\assets\includes\profile-functions" />
+      <recent name="C:\OpenServer\domains\flowershop\assets" />
+      <recent name="C:\OpenServer\domains\flowershop\includes" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.functions.js">
+    <configuration name="functions.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/assets/js/functions.js" working-dir="$PROJECT_DIR$/assets/js">
+      <method v="2" />
+    </configuration>
+    <configuration name="reg.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/assets/js/reg.js" working-dir="$PROJECT_DIR$/assets/js">
+      <method v="2" />
+    </configuration>
+    <configuration name="db.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/assets/includes/db.php">
+      <method v="2" />
+    </configuration>
     <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.functions.js" />
+        <item itemvalue="Node.js.reg.js" />
         <item itemvalue="PHP Script.index.php" />
+        <item itemvalue="PHP Script.db.php" />
       </list>
     </recent_temporary>
   </component>
@@ -58,11 +115,44 @@
       <workItem from="1668340246435" duration="150000" />
       <workItem from="1668340397388" duration="43000" />
       <workItem from="1668340453919" duration="1504000" />
-      <workItem from="1668342069041" duration="2933000" />
+      <workItem from="1668342069041" duration="20784000" />
+      <workItem from="1668377973934" duration="13821000" />
+      <workItem from="1668413011447" duration="2750000" />
+      <workItem from="1668537831082" duration="124000" />
+      <workItem from="1668537968571" duration="2864000" />
+      <workItem from="1668617352875" duration="22115000" />
+      <workItem from="1668668197544" duration="1263000" />
+      <workItem from="1668672996619" duration="3706000" />
+      <workItem from="1668677348882" duration="7538000" />
+      <workItem from="1668685834456" duration="4554000" />
+      <workItem from="1669235412974" duration="7373000" />
+      <workItem from="1669277356848" duration="4393000" />
+      <workItem from="1669283127880" duration="1905000" />
+      <workItem from="1670489352919" duration="256000" />
+      <workItem from="1670489664500" duration="121000" />
+      <workItem from="1670493713573" duration="5889000" />
+      <workItem from="1670668942252" duration="45128000" />
+      <workItem from="1670753178826" duration="48527000" />
+      <workItem from="1670832117236" duration="14859000" />
+      <workItem from="1670926103715" duration="4268000" />
+      <workItem from="1670961746732" duration="27386000" />
+      <workItem from="1671018991490" duration="32811000" />
+      <workItem from="1671668073706" duration="15441000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

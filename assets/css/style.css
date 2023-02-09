@@ -1,0 +1,308 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 30px;
+
+    box-shadow: 0 0 10px #00000020;
+}
+.auth_reg {
+    margin-top: 50px;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    border: unset;
+    border-bottom: 2px solid #e3e3e3;
+    background-color: #fcfcfc;
+    border-radius: 2px;
+
+    outline: none;
+}
+
+.button {
+    padding: 10px;
+    text-align: center;
+    margin: 10px 0;
+    background: #e3e3e3;
+    cursor: pointer;
+    border: unset;
+    /*font-weight: bold;*/
+    font-size: large;
+    color: #000000;
+}
+.button:hover{
+    background: #bdbdbd;
+}
+
+.errors_block_good {
+    color: green;
+    font-weight: bold;
+}
+
+.errors_block_bad {
+    color: red;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+.a_reg{
+    color: #ce6767;
+    font-weight: bold;
+}
+
+.p_reg{
+    margin: 10px 0;
+}
+
+.a_reg:hover{
+    color: #d01212;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    background-color: white/*#ebebeb*/;
+}
+
+
+body {
+    display: grid;
+}
+
+li{
+    list-style-type: none;
+}
+ul {
+    padding-left: 0;
+}
+
+.grid_area{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin: auto;
+    min-height: 100vh;
+    height: max-content;
+    width: 1200px;
+    max-width: 1200px;
+    /*background-color: #fcfcfc;*/
+    flex-wrap: wrap;
+}
+
+
+.logout {
+    display: flex;
+    height: 75px;
+    background-color: #2965BF;
+    border-left: 0;
+    border-right: 0;
+    border-color: #4079cfab;
+}
+
+.profile_area {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: inherit;
+    height: inherit;
+    height: max-content;
+}
+
+.profile_status {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.profile_settings {
+    display: flex;
+    width: inherit;
+    justify-content: space-around;
+}
+
+.profile_buttons {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+}
+
+.information_block {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+
+}
+.form_block {
+    display: flex;
+}
+
+.current-time {
+    color: #d01212;
+}
+
+.none {
+    display: none;
+}
+
+.category_checkbox {
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 200px;
+    padding: 5px;
+    /*border: solid 1px black;*/
+
+}
+
+.category_checkbox label {
+    display: flex;
+    color: #d01212;
+    width: 160px;
+    /*height: 20px;*/
+    /*font-weight: bold;*/
+}
+
+.category_checkbox input {
+    display: flex;
+    width: 25px;
+    height: 25px;
+}
+
+.delete-product-area {
+    width: 100%;
+    margin: 0;
+}
+
+
+.product_row{
+    /*background-color: #bdbdbd;*/
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    /*width: 100%;*/
+    width: max-content;
+    min-width: 630px;
+    height: 200px;
+    border-radius: 5px;
+    border: #c9cad4 solid 1px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.product_row span {
+    padding: 10px;
+    min-width: 100px;
+}
+
+.product_row_name {
+    width: 200px;
+}
+.product_row_price {
+    width: 75px;
+}
+
+.mini_image {
+    display: flex;
+    /*width: 250px;*/
+    width: 30%;
+    height: 95%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.update_inputs {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+    width: 250px;
+}
+
+.update_inputs input {
+    margin: 0;
+}
+
+.form_checkbox {
+    display: inline-flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+}
+
+.tooltip {
+    border-bottom: 1px dotted #0077AA;
+    cursor: help;
+}
+
+.tooltip::after {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px 8px 8px 0px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    content: attr(data-tooltip); /* Главная часть кода, определяющая содержимое всплывающей подсказки */
+    margin-top: -24px;
+    opacity: 0; /* Наш элемент прозрачен... */
+    padding: 3px 7px;
+    position: absolute;
+    visibility: hidden; /* ...и скрыт. */
+
+    transition: all 0.4s ease-in-out; /* Добавить плавности по вкусу */
+}
+
+.tooltip:hover::after {
+    opacity: 1; /* Показываем его */
+    visibility: visible;
+}
+
+.special_button {
+    width: 100px;
+}
+
+
+
+/*orders*/
+.order_area {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.update-status-area,
+.show-orders-area {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    width: 100%;
+    margin: auto;
+}
+
+.order {
+    box-shadow: 0 0 10px #00000020;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: inherit;
+}
+
+
