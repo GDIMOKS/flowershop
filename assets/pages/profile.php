@@ -81,19 +81,7 @@
                     Текущая дата:
                     <span class="current-time">
                         <?php
-                            $now = time();
-                            $days = array(
-                                'воскресенье', 'понедельник', 'вторник', 'среда',
-                                'четверг', 'пятница', 'суббота'
-                            );
-
-                            setlocale(LC_ALL, 'ru_RU', 'ru_RU.UTF-8', 'ru', 'russian');
-                            $date = date(', d.m.Y г., H:i:s');
-
-                            $dnum = date('w',strtotime(now));
-
-                            echo $days[$dnum];
-                            echo $date;
+                        echo getDateTime();
                         ?>
                     </span>
                 </span>
